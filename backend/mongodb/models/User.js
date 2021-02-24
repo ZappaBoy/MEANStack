@@ -24,48 +24,27 @@ async function isUserOfDB(username) {
 	})
 }
 
-async function isUsernameOfDB(username) {
-	return new Promise((resolve, reject) => {
-		userModel.findOne({'username': username}, (error, userData) => {
-			if (userData !== null) {
-				resolve(true)
-			} else {
-				if (!error) {
-					resolve(false)
-				} else {
-					reject(error)
-				}
-			}
-		})
-	})
-}
-
 async function saveUser(userData) {
-	const isValidUsername = await isUsernameOfDB(userData.username)
 	const isAlreadyUser = await isUserOfDB(userData.username)
 
 	return new Promise((resolve, reject) => {
 		if (!isAlreadyUser) {
-			if (!isValidUsername) {
-				const user = new userModel(userData)
+			const user = new userModel(userData)
 
-				user.save((error, data) => {
-					if (data !== null) {
-						console.log('User - saveUser - Saved')
-						resolve(true)
+			user.save((error, data) => {
+				if (data !== null) {
+					console.log('User - saveUser - Saved')
+					resolve(true)
+				} else {
+					if (!error) {
+						console.log('User - saveUser - Not Saved')
+						resolve(false)
 					} else {
-						if (!error) {
-							console.log('User - saveUser - Not Saved')
-							resolve(false)
-						} else {
-							console.log('User - saveUser - ERROR: ' + error)
-							reject(error)
-						}
+						console.log('User - saveUser - ERROR: ' + error)
+						reject(error)
 					}
-				})
-			} else {
-				reject(user_data_error)
-			}
+				}
+			})
 		} else {
 			console.log('User already exist')
 			reject(user_error)
