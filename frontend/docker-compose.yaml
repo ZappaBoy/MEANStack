@@ -1,0 +1,13 @@
+version: '3'
+services:
+  frontend:
+    container_name: frontend
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    env_file: .env
+    ports:
+      - "${PORT}:80"
+    volumes:
+      - .:/app

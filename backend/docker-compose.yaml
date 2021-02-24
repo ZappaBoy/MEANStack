@@ -1,0 +1,13 @@
+version: '3'
+services:
+  backend:
+    container_name: backend
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    ports:
+      - "${PORT}:8888"
+    volumes:
+      - .:/app

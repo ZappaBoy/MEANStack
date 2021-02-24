@@ -9,7 +9,7 @@ const cors = require('cors')
 const router = require('./routes/index')
 
 const app = express();
-const PORT = process.env.PORT || 8888
+const PORT = 8888
 
 app.use(logger('dev'))
 app.use(express.json())
@@ -35,6 +35,6 @@ app.use((req, res) => {
 })
 
 app.listen(PORT)
-console.log('Server running on port: ' + PORT)
+console.log('Server running on internal port: ' + PORT)
 
 module.exports = app;

@@ -2,9 +2,9 @@
   "name": "frontend",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "ng": "npx ng",
+    "start": "ng serve --host 0.0.0.0 --poll=500 --port=80",
+    "build": "ng build --prod frontend",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
