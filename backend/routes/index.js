@@ -1,9 +1,13 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
+const users = require('./users')
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-    res.send('Backend Server')
+const USERS_ENDPOINTS='/users'
+
+router.get('/healthcheck', function(req, res, next) {
+    res.send('Backend Server: default API module online')
 });
 
-module.exports = router;
+router.use(USERS_ENDPOINTS, users)
+
+module.exports = router
