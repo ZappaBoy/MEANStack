@@ -11,3 +11,22 @@ services:
       - "${PORT}:8888"
     volumes:
       - .:/app
+    links:
+      - mongodb
+
+  mongodb:
+    image: 'mongo:latest'
+    container_name: mean_mongodb
+    env_file: .env
+    restart: always
+    environment:
+      - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE}
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+      # - MONGODB_ENABLE_ADMIN=false
+    volumes:
+      - './mongo-volume:/data/db'
+
+volumes:
+  mongodb_data:
+    driver: local

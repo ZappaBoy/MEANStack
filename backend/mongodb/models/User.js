@@ -1,0 +1,147 @@
+'use strict'
+
+const userModel = require('../Connection').models.user
+
+const user_error = -2
+const username_error = -3
+const user_data_error = -4
+
+function isStringValue (value) {
+    return (typeof (value) === 'string')
+}
+
+function isBooleanValue (value) {
+    return (typeof (value) === 'boolean')
+}
+
+async function isUserOfDB (username) {
+    const isValidUsername = isStringValue(username)
+
+    return new Promise((resolve, reject) => {
+        if (isValidUsername) {
+            userModel.findOne({ 'username': username }, (error, userData) => {
+                if (userData !== null) {
+                    console.log('User - isUserOfDb - True')
+                    resolve(true)
+                } else {
+                    if (!error) {
+                        console.log('User - isUserOfDb - False')
+                        resolve(false)
+                    } else {
+                        console.log('User - isUserOfDb - ERROR: ' + error)
+                        reject(error)
+                    }
+                }
+            })
+        } else {
+            reject(username_error)
+        }
+    })
+}
+
+async function isUsernameOfDB (username) {
+    const isValidUsername = await isStringValue(username)
+
+    return new Promise((resolve, reject) => {
+        if (isValidUsername) {
+            userModel.findOne({ 'username': username }, (error, userData) => {
+                if (userData !== null) {
+                    resolve(true)
+                } else {
+                    if (!error) {
+                        resolve(false)
+                    } else {
+                        reject(error)
+                    }
+                }
+            })
+        } else {
+            reject(username_error)
+        }
+    })
+}
+
+async function saveUser (userData) {
+    const isValidActive = await isBooleanValue(userData.active)
+    const isValidUsername = await isUsernameOfDB(userData.username)
+    const isAlreadyUser = await isUserOfDB(userData.username)
+
+    return new Promise((resolve, reject) => {
+        if (!isAlreadyUser) {
+            if (isValidActive && !isValidUsername) {
+                const user = new userModel(userData)
+
+                user.save((error, data) => {
+                    if (data !== null) {
+                        console.log('User - saveUser - Saved')
+                        resolve(true)
+                    } else {
+                        if (!error) {
+                            console.log('User - saveUser - Not Saved')
+                            resolve(false)
+                        } else {
+                            console.log('User - saveUser - ERROR: ' + error)
+                            reject(error)
+                        }
+                    }
+                })
+            } else {
+                reject(user_data_error)
+            }
+        } else {
+            console.log('User already exist')
+            reject(user_error)
+        }
+    })
+}
+
+async function getUserData (username) {
+    const isValidUserID = isUserOfDB(username)
+
+    return new Promise((resolve, reject) => {
+        if (isValidUserID) {
+            userModel.findOne({ 'username': username }, (error, userData) => {
+                if (userData !== null) {
+                    const user = new userModel(userData)
+                    resolve(user)
+                } else {
+                    if (!error) {
+                        console.log('User - getUserData - No Data')
+                        reject(error)
+                    } else {
+                        console.log('User - getUserData - ERROR: ' + error)
+                        reject(error)
+                    }
+                }
+            })
+        } else {
+            reject(user_error)
+        }
+    })
+}
+
+async function changeUserData ({ userData }) {
+    const isAlreadyUser = await isUserOfDB(userData.apiKey)
+
+    return new Promise((resolve, reject) => {
+        if (!isAlreadyUser) {
+            resolve(userModel.updateOne({ 'username': userData.username },
+                {
+                    $set: {
+                        'username': userData.username,
+                        'active': userData.active
+                    }
+                })
+                .lean().exec())
+        } else {
+            reject(user_data_error)
+        }
+    })
+}
+
+module.exports = {
+    isUserOfDB,
+    saveUser,
+    getUserData,
+    changeUserData
+}
