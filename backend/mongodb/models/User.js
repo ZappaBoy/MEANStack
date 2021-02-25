@@ -2,7 +2,7 @@
 
 const userModel = require('../Connection').models.user
 
-const user_error = -1
+const userError = -1
 
 async function isUserOfDB(username) {
 	return new Promise((resolve, reject) => {
@@ -46,7 +46,7 @@ async function saveUser(userData) {
 			})
 		} else {
 			console.log('User already exist')
-			reject(user_error)
+			reject(userError)
 		}
 	})
 }
@@ -72,7 +72,7 @@ async function getUserData(username) {
 			})
 		} else {
 			console.log('User already exist')
-			reject(user_error)
+			reject(userError)
 		}
 	})
 }
@@ -92,7 +92,7 @@ async function changeUserData({userData}) {
 				.lean().exec())
 		} else {
 			console.log('User already exist')
-			reject(user_error)
+			reject(userError)
 		}
 	})
 }
