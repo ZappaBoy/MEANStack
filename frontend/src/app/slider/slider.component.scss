@@ -1,0 +1,12 @@
+.gallery > img {
+  display: block;
+  width: 100%;
+}
+
+.gallery > .centered {
+  color: var(--text-color-light) !important;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  margin-top: 30%;
+}

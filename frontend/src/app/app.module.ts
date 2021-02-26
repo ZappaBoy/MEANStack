@@ -14,6 +14,12 @@ import {RippleModule} from "primeng/ripple";
 import {TabViewModule} from 'primeng/tabview';
 import {MenubarModule} from 'primeng/menubar';
 import {TabMenuModule} from 'primeng/tabmenu';
+import {GalleriaModule} from 'primeng/galleria';
+import {HttpClientModule} from '@angular/common/http';
+import {SliderComponent} from './slider/slider.component';
+import {ContentDividerComponent} from './content-divider/content-divider.component';
+import {DividerModule} from 'primeng/divider';
+import {FooterComponent} from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +28,10 @@ import {TabMenuModule} from 'primeng/tabmenu';
     UserAccessComponent,
     DashboardComponent,
     InsertDataComponent,
-    NavbarComponent
+    NavbarComponent,
+    SliderComponent,
+    ContentDividerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +43,9 @@ import {TabMenuModule} from 'primeng/tabmenu';
     TabViewModule,
     MenubarModule,
     TabMenuModule,
+    GalleriaModule,
+    HttpClientModule,
+    DividerModule,
     RouterModule.forRoot([
       {path: '', component: AppComponent}
 

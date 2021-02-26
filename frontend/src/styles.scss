@@ -3,9 +3,10 @@
 @import "~primeicons/primeicons.css";
 @import "~primeng/resources/primeng.min.css";
 @import "~primeng/resources/themes/md-light-deeppurple/theme.css";
+@import "~primeflex/primeflex.css";
 
 *:not(.fa) {
-  font-family: 'Proxima Nova Rg', serif !important
+  font-family: 'Proxima Nova Rg', serif !important;
 }
 
 html, body {
@@ -13,6 +14,28 @@ html, body {
 }
 
 body {
-  margin: 0;
+  text-align: center;
+  margin: 0 auto;
 }
 
+#page-wrap {
+  text-align: left;
+  width: 80%;
+  margin: 0 auto;
+}
+
+:root {
+  --text-color-light: #ffffff
+}
+
+.font-small {
+  font-size: 14px;
+}
+
+.font-medium {
+  font-size: 18px;
+}
+
+.font-big {
+  font-size: 21px;
+}
