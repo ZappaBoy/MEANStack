@@ -8,10 +8,12 @@ import {InsertDataComponent} from "./insert-data/insert-data.component";
 import {UserAccessComponent} from "./user-access/user-access.component";
 
 const routes: Routes = [
-  { path: '', component: HomepageComponent},
-  { path: 'dashboard', component: DashboardComponent},
-  { path: 'insert-data', component: InsertDataComponent},
-  { path: 'login', component: UserAccessComponent}
+  {path: 'homepage', component: HomepageComponent},
+  {path: 'dashboard', component: DashboardComponent},
+  {path: 'insert-data', component: InsertDataComponent},
+  {path: 'login', component: UserAccessComponent},
+  {path: '', redirectTo: '/homepage', pathMatch: 'full'},
+  {path: '**', redirectTo: '/homepage', pathMatch: 'full'}
 ];
 
 @NgModule({
