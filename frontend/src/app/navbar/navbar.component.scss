@@ -1,0 +1,17 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+::ng-deep {
+  .p-tabmenu > * {
+    background-color: var(--primary-color) !important;
+  }
+
+  &.p-menuitem-link {
+    background-color: var(--primary-color) !important;
+  }
+
+  .p-menuitem-text {
+    color: #ffffff !important;
+  }
+}
