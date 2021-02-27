@@ -20,6 +20,7 @@ import {SliderComponent} from './slider/slider.component';
 import {ContentDividerComponent} from './content-divider/content-divider.component';
 import {DividerModule} from 'primeng/divider';
 import {FooterComponent} from './footer/footer.component';
+import {InputTextModule} from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import {FooterComponent} from './footer/footer.component';
     GalleriaModule,
     HttpClientModule,
     DividerModule,
+    InputTextModule,
     RouterModule.forRoot([
       {path: '', component: AppComponent}
 
