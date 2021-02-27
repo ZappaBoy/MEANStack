@@ -1,0 +1,14 @@
+#user-access {
+  margin: 3em;
+  display: inline-block;
+  width: 60%;
+  padding: 3em;
+  background-color: var(--light-background);
+  border-radius: 8px;
+}
+
+::ng-deep {
+  .p-divider-content {
+    background-color: var(--light-background) !important;
+  }
+}

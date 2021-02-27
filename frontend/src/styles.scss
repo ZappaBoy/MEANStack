@@ -5,12 +5,9 @@
 @import "~primeng/resources/themes/md-light-deeppurple/theme.css";
 @import "~primeflex/primeflex.css";
 
-*:not(.fa) {
-  font-family: 'Proxima Nova Rg', serif !important;
-}
-
 html, body {
   height: 100%;
+  font-family: 'Proxima Nova Rg', serif !important;
 }
 
 body {
@@ -25,7 +22,9 @@ body {
 }
 
 :root {
-  --text-color-light: #ffffff
+  --text-color-light: #ffffff;
+  --text-color-dark: #121420;
+  --light-background: #d8ddde;
 }
 
 .font-small {
