@@ -23,6 +23,19 @@ import {FooterComponent} from './footer/footer.component';
 import {InputTextModule} from 'primeng/inputtext';
 import {TableModule} from 'primeng/table';
 import {CustomerService} from "./services/customer.service";
+import {CalendarModule} from 'primeng/calendar';
+import {FormsModule} from "@angular/forms";
+import {CascadeSelectModule} from 'primeng/cascadeselect';
+import {CheckboxModule} from 'primeng/checkbox';
+import {DropdownModule} from 'primeng/dropdown';
+import {InputSwitchModule} from 'primeng/inputswitch';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {KeyFilterModule} from 'primeng/keyfilter';
+import {PasswordModule} from 'primeng/password';
+import {RatingModule} from 'primeng/rating';
+import {SliderModule} from 'primeng/slider';
+import {SelectButtonModule} from 'primeng/selectbutton';
+import {ToggleButtonModule} from 'primeng/togglebutton';
 
 @NgModule({
   declarations: [
@@ -51,10 +64,23 @@ import {CustomerService} from "./services/customer.service";
     DividerModule,
     InputTextModule,
     TableModule,
+    CalendarModule,
+    CascadeSelectModule,
+    CheckboxModule,
+    DropdownModule,
+    InputSwitchModule,
+    RadioButtonModule,
+    KeyFilterModule,
+    PasswordModule,
+    RatingModule,
+    SliderModule,
+    SelectButtonModule,
+    ToggleButtonModule,
     RouterModule.forRoot([
       {path: '', component: AppComponent}
 
-    ])
+    ]),
+    FormsModule
   ],
   providers: [CustomerService],
   bootstrap: [AppComponent]
