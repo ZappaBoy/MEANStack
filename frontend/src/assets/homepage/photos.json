@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "previewImageSrc": "assets/images/abstract1.png",
+      "thumbnailImageSrc": "assets/images/abstract1.png",
+      "alt": "",
+      "title": "Welcome..."
+    },
+    {
+      "previewImageSrc": "assets/images/abstract2.jpg",
+      "thumbnailImageSrc": "assets/images/abstract2.jpg",
+      "alt": "",
+      "title": "...to the future"
+    }
+  ]
+}

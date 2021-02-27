@@ -1,0 +1,14 @@
+#footer {
+  padding: 3em;
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
+
+  .p-d-flex {
+    margin: auto;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+  }
+}

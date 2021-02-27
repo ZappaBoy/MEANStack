@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {CustomerService} from "../services/customer.service";
+import {Customer} from "../models/customer.model";
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  customers1: Customer[];
 
-  constructor() { }
+  customers2: Customer[];
 
-  ngOnInit(): void {
+  selectedCustomer1: Customer;
+
+  selectedCustomer2: Customer;
+
+  constructor(private customerService: CustomerService) {
+  }
+
+  ngOnInit() {
+    this.customerService.getCustomersMedium().then(data => this.customers1 = data);
+    this.customerService.getCustomersMedium().then(data => this.customers2 = data);
   }
 
 }
