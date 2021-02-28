@@ -6,7 +6,6 @@ $navbar-height: 3em;
   width: 100%;
   top: 0;
   z-index: 1;
-
   > * {
     height: $navbar-height;
     width: 100%;
@@ -37,6 +36,8 @@ span {
   .p-menubar {
     background-color: var(--primary-color) !important;
     margin: 0;
+    border: none;
+    border-radius: 0;
   }
 
   .p-menuitem-text {

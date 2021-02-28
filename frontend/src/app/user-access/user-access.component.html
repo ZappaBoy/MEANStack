@@ -1,5 +1,7 @@
-<p-dialog [(visible)]="display">
-  <div id="user-access">
+<p-dialog [(visible)]="display" [draggable]="false"
+          [focusOnShow]="true"
+          styleClass="user-access-dialog">
+  <div id="user-access-panel">
     <div class="card">
       <h2>Already have an account?</h2>
       <div class="p-d-flex p-ai-center p-jc-center">
@@ -12,7 +14,7 @@
             <label for="password"></label>
             <input id="password" pInputText placeholder="Password" type="password"/>
           </div>
-          <p-button label="Login"></p-button>
+          <p-button autofocus label="Login" type="button"></p-button>
         </div>
       </div>
       <div class="p-d-flex p-ai-center p-jc-center">
@@ -21,7 +23,8 @@
         </p-divider>
       </div>
       <div class="p-d-flex p-ai-center p-jc-center">
-        <p-button icon="pi pi-user-plus" label="Sign Up" styleClass="p-button-success"></p-button>
+        <p-button icon="pi pi-user-plus" label="Sign Up" styleClass="p-button-success"
+                  type="button"></p-button>
       </div>
     </div>
   </div>

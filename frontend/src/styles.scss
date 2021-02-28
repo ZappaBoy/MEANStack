@@ -43,3 +43,17 @@ body {
 .font-big {
   font-size: 21px;
 }
+
+.user-access-dialog {
+  width: 40vw;
+  padding: 0;
+
+  > * {
+    background-color: var(--light-background) !important;
+  }
+
+  .p-dialog-header {
+    padding: 3em 0 0 2em;
+    height: 2em;
+  }
+}
