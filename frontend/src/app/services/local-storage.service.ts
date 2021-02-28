@@ -12,11 +12,12 @@ export class LocalStorageService {
   }
 
   public setAuthStatus(status: boolean): void {
-    sessionStorage.setItem(AUTH_STATUS, JSON.stringify(status));
+    sessionStorage.setItem(AUTH_STATUS, String(status))
   }
 
   public getAuthStatus(): boolean {
-    status = JSON.parse(sessionStorage.getItem(AUTH_STATUS))
-    return status == 'true';
+    status = sessionStorage.getItem(AUTH_STATUS)
+    console.log(status)
+    return status == 'true'
   }
 }
