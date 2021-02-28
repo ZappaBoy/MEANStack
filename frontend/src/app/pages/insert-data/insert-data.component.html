@@ -16,7 +16,7 @@
                    optionGroupLabel="name" optionLabel="cname" placeholder="Select a City">
     <ng-template let-option pTemplate="option">
       <div class="country-item">
-        <img *ngIf="option.states" [class]="'flag flag-' + option.code.toLowerCase()" alt="" src="assets"/>
+        <img *ngIf="option.states" [class]="'flag flag-' + option.code.toLowerCase()" alt="" src="../../../assets"/>
         <i *ngIf="option.cities" class="pi pi-compass p-mr-2"></i>
         <i *ngIf="option.cname" class="pi pi-map-marker p-mr-2"></i>
         <span>{{option.cname || option.name}}</span>
