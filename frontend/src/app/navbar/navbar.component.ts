@@ -11,6 +11,12 @@ export class NavbarComponent implements OnInit {
 
   items: MenuItem[];
 
+  display: boolean = false;
+
+  showDialog() {
+    this.display = true;
+  }
+
   constructor() {
   }
 

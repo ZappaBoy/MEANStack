@@ -17,11 +17,6 @@ $navbar-height: 3em;
   }
 }
 
-#user-access-button {
-  font-size: 18px !important;
-  font-family: var(--font-family)
-}
-
 span {
   outline: none;
   border: 0;
@@ -34,6 +29,11 @@ span {
 }
 
 ::ng-deep {
+  #user-access-button {
+    font-size: 18px !important;
+    font-family: var(--font-family)
+  }
+
   .p-menubar {
     background-color: var(--primary-color) !important;
     margin: 0;

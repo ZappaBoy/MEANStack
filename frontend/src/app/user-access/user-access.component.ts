@@ -9,6 +9,12 @@ import {DialogService} from "primeng/dynamicdialog";
 })
 export class UserAccessComponent implements OnInit {
 
+  display: boolean = false;
+
+  showDialog() {
+    this.display = true;
+  }
+
   constructor(public dialogService: DialogService) {
   }
 
