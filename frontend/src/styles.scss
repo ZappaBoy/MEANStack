@@ -5,26 +5,31 @@
 @import "~primeng/resources/themes/md-light-deeppurple/theme.css";
 @import "~primeflex/primeflex.css";
 
+:root {
+  --text-color-light: #ffffff;
+  --text-color-dark: #121420;
+  --light-background: #f3f3f3;
+
+  --font-family: 'Proxima Nova Rg', serif !important;
+  --font-small: 14px;
+  --font-medium: 18px;
+  --font-big: 21px;
+}
+
 html, body {
-  height: 100%;
-  font-family: 'Proxima Nova Rg', serif !important;
+  font-family: var(--font-family)
 }
 
 body {
   text-align: center;
   margin: 0 auto;
+  min-height: 100vh;
 }
 
 #page-wrap {
   text-align: left;
   width: 80%;
   margin: 0 auto;
-}
-
-:root {
-  --text-color-light: #ffffff;
-  --text-color-dark: #121420;
-  --light-background: #f3f3f3;
 }
 
 .font-small {

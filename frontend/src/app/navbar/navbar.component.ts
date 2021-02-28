@@ -27,10 +27,6 @@ export class NavbarComponent implements OnInit {
       {
         label: 'Insert data',
         routerLink: '/insert-data',
-      },
-      {
-        label: 'Login',
-        routerLink: '/login',
       }
     ];
   }

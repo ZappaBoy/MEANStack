@@ -1,29 +1,48 @@
-$height: 4em;
+$navbar-height: 3em;
 
-#navbar > * {
-  height: $height;
-  background-color: var(--primary-color) !important;
-}
+#navbar {
+  border: none;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 1;
 
-.spacer {
-  flex: 1 1 auto;
-}
-
-::ng-deep {
-  .p-tabmenu > * {
+  > * {
+    height: $navbar-height;
+    width: 100%;
     background-color: var(--primary-color) !important;
-    margin: 0;
-    height: $height;
-  }
-
-  .p-menuitem-link {
-    background-color: var(--primary-color) !important;
-    margin: 0;
-    height: $height;
-  }
-
-  .p-menuitem-text {
+    font-size: var(--font-medium);
     color: var(--text-color-light) !important;
     margin: 0;
   }
+}
+
+#user-access-button {
+  font-size: 18px !important;
+  font-family: var(--font-family)
+}
+
+span {
+  outline: none;
+  border: 0;
+}
+
+.logo {
+  height: $navbar-height;
+  box-shadow: none;
+  outline: none;
+}
+
+::ng-deep {
+  .p-menubar {
+    background-color: var(--primary-color) !important;
+    margin: 0;
+  }
+
+  .p-menuitem-text {
+    font-size: var(--font-medium);
+    color: var(--text-color-light) !important;
+    margin: 0;
+  }
+
 }
