@@ -1,3 +1,6 @@
+#MongoDB Docker volume
+backend/mongo-volume
+
 
 # Created by https://www.toptal.com/developers/gitignore/api/angular,node,jetbrains
 # Edit at https://www.toptal.com/developers/gitignore?templates=angular,node,jetbrains
