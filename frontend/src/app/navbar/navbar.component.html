@@ -1,3 +1,11 @@
 <div class="font-big" id="navbar">
-  <p-tabMenu [model]="items"></p-tabMenu>
+  <p-menubar [model]="items">
+    <ng-template pTemplate="start">
+      <img alt="" class="p-mr-2 logo" routerLink="/" src="/assets/images/logo.png">
+    </ng-template>
+    <ng-template pTemplate="end">
+      <button icon="pi pi-power-on" id="user-access-button" label="Login" pButton routerLink="/login"></button>
+    </ng-template>
+  </p-menubar>
+
 </div>

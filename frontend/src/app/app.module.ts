@@ -36,6 +36,7 @@ import {RatingModule} from 'primeng/rating';
 import {SliderModule} from 'primeng/slider';
 import {SelectButtonModule} from 'primeng/selectbutton';
 import {ToggleButtonModule} from 'primeng/togglebutton';
+import {DynamicDialogModule} from 'primeng/dynamicdialog';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import {ToggleButtonModule} from 'primeng/togglebutton';
     SliderModule,
     SelectButtonModule,
     ToggleButtonModule,
+    DynamicDialogModule,
     RouterModule.forRoot([
       {path: '', component: AppComponent}
 
