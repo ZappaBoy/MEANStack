@@ -1,0 +1,40 @@
+<p-dialog [(visible)]="display" [draggable]="false"
+          [focusOnShow]="true"
+          class="signup-dialog"
+          styleClass="signup-dialog dialog-popup">
+  <div id="signup-panel">
+    <div class="card">
+      <h2>Please compile the form below</h2>
+      <div class="p-d-flex p-ai-center p-jc-center">
+        <div class="p-fluid">
+          <div class="p-field">
+            <label for="username"></label>
+            <input id="username" pInputText placeholder="Choose a username" type="text"/>
+          </div>
+          <div class="p-field">
+            <label for="password"></label>
+            <input id="password" pPassword placeholder="Choose a password" type="password"/>
+          </div>
+          <div class="p-field">
+            <label for="password-confirmation"></label>
+            <input id="password-confirmation" pPassword placeholder="Confirm the password" type="password"/>
+          </div>
+        </div>
+      </div>
+      <div class="p-d-flex p-ai-center p-jc-center">
+        <p-divider layout="horizontal">
+        </p-divider>
+      </div>
+      <div class="p-d-flex p-ai-center p-jc-center">
+        <p-button icon="pi pi-user-plus" label="Signup" styleClass="p-button-success"
+                  type="button"></p-button>
+      </div>
+    </div>
+  </div>
+</p-dialog>
+
+<div class="p-d-flex p-ai-center p-jc-center">
+  <p-button (click)="showDialog()" icon="pi pi-user-plus" label="Signup" styleClass="p-button-success"
+            type="button"></p-button>
+</div>
+

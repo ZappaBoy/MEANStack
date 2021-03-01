@@ -1,6 +1,6 @@
 <p-dialog [(visible)]="display" [draggable]="false"
           [focusOnShow]="true"
-          styleClass="user-access-dialog">
+          styleClass="user-access-dialog dialog-popup">
   <div id="user-access-panel">
     <div class="card">
       <h2>Already have an account?</h2>
@@ -22,9 +22,8 @@
           <b>OR</b>
         </p-divider>
       </div>
-      <div class="p-d-flex p-ai-center p-jc-center">
-        <p-button icon="pi pi-user-plus" label="Sign Up" styleClass="p-button-success"
-                  type="button"></p-button>
+      <div>
+        <app-signup></app-signup>
       </div>
     </div>
   </div>

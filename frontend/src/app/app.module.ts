@@ -38,6 +38,7 @@ import {SelectButtonModule} from 'primeng/selectbutton';
 import {ToggleButtonModule} from 'primeng/togglebutton';
 import {DialogModule} from 'primeng/dialog';
 import {LogoutComponent} from './components/logout/logout.component';
+import {SignupComponent} from './components/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {LogoutComponent} from './components/logout/logout.component';
     SliderComponent,
     ContentDividerComponent,
     FooterComponent,
-    LogoutComponent
+    LogoutComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
