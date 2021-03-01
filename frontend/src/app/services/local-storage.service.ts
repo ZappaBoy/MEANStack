@@ -17,7 +17,6 @@ export class LocalStorageService {
 
   public getAuthStatus(): boolean {
     status = sessionStorage.getItem(AUTH_STATUS)
-    console.log(status)
     return status == 'true'
   }
 }

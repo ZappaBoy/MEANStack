@@ -57,3 +57,17 @@ body {
     height: 2em;
   }
 }
+
+.logout-dialog {
+  width: 40vw;
+  padding: 0;
+
+  > * {
+    background-color: var(--light-background) !important;
+  }
+
+  .p-dialog-header {
+    padding: 3em 0 0 2em;
+    height: 2em;
+  }
+}

@@ -4,10 +4,10 @@ import {AppComponent} from './app.component';
 import {HomepageComponent} from './pages/homepage/homepage.component';
 import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from './app.routing';
-import {UserAccessComponent} from './pages/user-access/user-access.component';
+import {UserAccessComponent} from './components/user-access/user-access.component';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {InsertDataComponent} from './pages/insert-data/insert-data.component';
-import {NavbarComponent} from './pages/navbar/navbar.component';
+import {NavbarComponent} from './components/navbar/navbar.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ButtonModule} from "primeng/button";
 import {RippleModule} from "primeng/ripple";
@@ -16,10 +16,10 @@ import {MenubarModule} from 'primeng/menubar';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {GalleriaModule} from 'primeng/galleria';
 import {HttpClientModule} from '@angular/common/http';
-import {SliderComponent} from './pages/slider/slider.component';
-import {ContentDividerComponent} from './pages/content-divider/content-divider.component';
+import {SliderComponent} from './components/slider/slider.component';
+import {ContentDividerComponent} from './components/content-divider/content-divider.component';
 import {DividerModule} from 'primeng/divider';
-import {FooterComponent} from './pages/footer/footer.component';
+import {FooterComponent} from './components/footer/footer.component';
 import {InputTextModule} from 'primeng/inputtext';
 import {TableModule} from 'primeng/table';
 import {CustomerService} from "./services/customer.service";
@@ -37,7 +37,7 @@ import {SliderModule} from 'primeng/slider';
 import {SelectButtonModule} from 'primeng/selectbutton';
 import {ToggleButtonModule} from 'primeng/togglebutton';
 import {DialogModule} from 'primeng/dialog';
-import {LogoutComponent} from './pages/logout/logout.component';
+import {LogoutComponent} from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
