@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {PhotoGalleryService} from "../services/photo-gallery.service";
+import {PhotoGalleryService} from "../../services/photo-gallery.service";
 
 @Component({
   selector: 'app-slider',
