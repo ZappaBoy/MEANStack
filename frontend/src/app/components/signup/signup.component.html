@@ -9,15 +9,16 @@
         <div class="p-fluid">
           <div class="p-field">
             <label for="username"></label>
-            <input id="username" pInputText placeholder="Choose a username" type="text"/>
+            <input [(ngModel)]="this.username" id="username" pInputText placeholder="Choose a username" type="text"/>
           </div>
           <div class="p-field">
             <label for="password"></label>
-            <input id="password" pPassword placeholder="Choose a password" type="password"/>
+            <input [(ngModel)]="this.password" id="password" pPassword placeholder="Choose a password" type="password"/>
           </div>
           <div class="p-field">
             <label for="password-confirmation"></label>
-            <input id="password-confirmation" pPassword placeholder="Confirm the password" type="password"/>
+            <input [(ngModel)]="this.password_confirmation" id="password-confirmation" pInputText
+                   placeholder="Confirm the password" type="password"/>
           </div>
         </div>
       </div>
@@ -26,7 +27,7 @@
         </p-divider>
       </div>
       <div class="p-d-flex p-ai-center p-jc-center">
-        <p-button icon="pi pi-user-plus" label="Signup" styleClass="p-button-success"
+        <p-button (onClick)="signup()" icon="pi pi-user-plus" label="Signup" styleClass="p-button-success"
                   type="button"></p-button>
       </div>
     </div>

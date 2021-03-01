@@ -9,17 +9,24 @@ const cors = require('cors')
 const router = require('./routes/index')
 
 const app = express();
-const PORT = 8888
 
 app.use(logger('dev'))
 app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({extended: false}))
 app.use(cookieParser())
 app.use(compression())
 app.use(helmet())
 
+const PORT = process.env.PORT || 8888
+
+const FRONTEND_IP = process.env.FRONTEND_IP || 'localhost'
+const FRONTEND_PORT = process.env.FRONTEND_PORT || '4200'
+const FRONTEND_ORIGIN = 'http://' + FRONTEND_IP + ':' + FRONTEND_PORT
+
 let corsOptions = {
-    origin: 'http://127.0.0.1'
+    allowedHeaders: ['Content-Type'],
+    preflightContinue: true,
+    origin: FRONTEND_ORIGIN
 };
 app.use(cors(corsOptions));
 

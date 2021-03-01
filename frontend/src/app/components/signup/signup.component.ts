@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {UserAccessService} from "../../services/user-access.service";
 
 @Component({
   selector: 'app-signup',
@@ -6,9 +7,12 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-  display: boolean;
+  display: boolean
+  username: string
+  password: string
+  password_confirmation: string
 
-  constructor() {
+  constructor(private userAccessService: UserAccessService) {
   }
 
   showDialog() {
@@ -18,4 +22,16 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  signup() {
+    if (this.password === this.password_confirmation) {
+      console.log(this.password, this.username)
+      this.userAccessService.signup(this.username, this.password)
+    } else {
+      this.passwordsDontMatch()
+    }
+  }
+
+  passwordsDontMatch() {
+    alert('passwords not matching')
+  }
 }

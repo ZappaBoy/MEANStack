@@ -1,7 +1,7 @@
 <div class="font-big" id="navbar">
   <p-menubar [model]="items">
     <ng-template pTemplate="start">
-      <img alt="" class="p-mr-2 logo" routerLink="/" src="/frontend/src/assets/images/logo.png">
+      <img alt="" class="p-mr-2 logo" routerLink="/" src="assets/images/logo.png">
     </ng-template>
 
     <div *ngIf="this.isAuthenticated(); then loggedUserContent else userAccessContent"></div>

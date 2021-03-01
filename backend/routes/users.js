@@ -13,22 +13,19 @@ router.post('/register', async function (req, res, next) {
         password: req.body.password,
         active: true
     }
-    let result = await user.saveUser(userData)
-        .then((status, error) => {
-            if (error) {
-                return error
-            }
-            return status
+    await user.saveUser(userData)
+        .then((status) => {
+            res.status(200)
         })
         .catch((error) => {
-            console.trace(error)
+            if (error === -1) {
+                res.status(409)
+            } else {
+                res.status(500)
+                console.trace(error)
+            }
         })
 
-    if (result === true) {
-        res.status(200)
-    } else {
-        res.status(500)
-    }
     res.end()
 })
 
