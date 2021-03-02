@@ -13,10 +13,16 @@ export class ToastService {
     detail: "Registration successful"
   }
 
+  loginSuccessfulMessage: Message = {
+    severity: "success",
+    summary: "Success",
+    detail: "Login successful"
+  }
+
   errorMessage: Message = {
     severity: "error",
     summary: "Error",
-    detail: "Something went wrong"
+    detail: "Something went wrong, try again later"
   }
   invokeEvent: Subject<any> = new Subject();
 
@@ -29,6 +35,10 @@ export class ToastService {
 
   registrationSuccessful() {
     this.showToast(this.registrationSuccessfulMessage)
+  }
+
+  loginSuccessful() {
+    this.showToast(this.loginSuccessfulMessage)
   }
 
   error() {

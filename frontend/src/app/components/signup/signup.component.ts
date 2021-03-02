@@ -25,32 +25,29 @@ export class SignupComponent implements OnInit {
               private toastService: ToastService) {
   }
 
-  showDialog() {
-    this.display = true;
-  }
-
-  closeDialog() {
-    this.display = false;
+  showDialog(status: boolean = true) {
+    this.display = status;
   }
 
   ngOnInit(): void {
   }
 
-  signup(user: User): void {
+  signup(): void {
     this.resetErrors()
     if (this.inputAccepted()) {
-      this.userAccessService.signup(user)
+      this.userAccessService.signup(this.user)
         .subscribe((res) => {
           console.log(res)
           this.registrationSuccessful = true
           this.toastService.registrationSuccessful()
-          this.closeDialog()
+          this.showDialog(false)
         }, (error) => {
           console.log(error)
           if (error.status === 409) {
             this.usernameNotAvailable = true
           } else {
             this.registrationError = true
+            this.toastService.error()
           }
         })
     }
