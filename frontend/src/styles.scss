@@ -44,9 +44,11 @@ body {
   font-size: 21px;
 }
 
-.user-access-dialog {
-  width: 40vw;
-  padding: 0;
+.dialog-popup {
+  width: 45vw;
+  height: 30vw;
+  padding: 1em;
+  background-color: var(--light-background) !important;
 
   > * {
     background-color: var(--light-background) !important;
@@ -58,16 +60,6 @@ body {
   }
 }
 
-.logout-dialog {
-  width: 40vw;
-  padding: 0;
-
-  > * {
-    background-color: var(--light-background) !important;
-  }
-
-  .p-dialog-header {
-    padding: 3em 0 0 2em;
-    height: 2em;
-  }
+.p-dialog {
+  max-height: 100% !important;
 }

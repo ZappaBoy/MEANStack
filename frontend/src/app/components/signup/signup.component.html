@@ -1,0 +1,52 @@
+<p-dialog [(visible)]="display" [draggable]="false"
+          [focusOnShow]="true"
+          class="signup-dialog"
+          styleClass="signup-dialog dialog-popup">
+  <div id="signup-panel">
+    <div class="card">
+      <h2>Please compile the form below</h2>
+      <div class="p-d-flex p-ai-center p-jc-center">
+        <div class="p-fluid">
+          <div class="p-field">
+            <label for="username"></label>
+            <input [(ngModel)]="this.user.username"
+                   [ngClass]="setInvalidIf(this.usernameNotAvailable || this.usernameNotInserted)" id="username"
+                   pInputText placeholder="Choose a username" type="text"/>
+          </div>
+          <div class="p-field">
+            <label for="password"></label>
+            <input [(ngModel)]="this.user.password"
+                   [ngClass]="setInvalidIf(this.passwordsDontMatch || this.passwordNotAccepted)" id="password" pPassword
+                   placeholder="Choose a password" type="password"/>
+          </div>
+          <div class="p-field">
+            <label for="password-confirmation"></label>
+            <input [(ngModel)]="this.passwordConfirmation" [ngClass]="setInvalidIf(this.passwordsDontMatch)"
+                   id="password-confirmation" pInputText
+                   placeholder="Confirm the password" type="password"/>
+          </div>
+          <div class="error-message">
+            <h5 *ngIf="this.usernameNotInserted">Please insert username</h5>
+            <h5 *ngIf="this.usernameNotAvailable">Username not available</h5>
+            <h5 *ngIf="this.passwordNotAccepted">Password too weak</h5>
+            <h5 *ngIf="this.passwordsDontMatch">Passwords don't match</h5>
+          </div>
+        </div>
+      </div>
+      <div class="p-d-flex p-ai-center p-jc-center">
+        <p-divider layout="horizontal">
+        </p-divider>
+      </div>
+      <div class="p-d-flex p-ai-center p-jc-center">
+        <p-button (onClick)="signup(this.user)" icon="pi pi-user-plus" label="Signup" styleClass="p-button-success"
+                  type="button"></p-button>
+      </div>
+    </div>
+  </div>
+</p-dialog>
+
+<div class="p-d-flex p-ai-center p-jc-center">
+  <p-button (click)="showDialog()" icon="pi pi-user-plus" label="Signup" styleClass="p-button-success"
+            type="button"></p-button>
+</div>
+

@@ -11,8 +11,8 @@ export class UserAccessComponent implements OnInit {
 
   display: boolean = false;
 
-  showDialog() {
-    this.display = true;
+  showDialog(status: boolean = true) {
+    this.display = status;
   }
 
   constructor(public dialogService: DialogService) {
