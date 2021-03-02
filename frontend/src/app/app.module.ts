@@ -39,6 +39,8 @@ import {ToggleButtonModule} from 'primeng/togglebutton';
 import {DialogModule} from 'primeng/dialog';
 import {LogoutComponent} from './components/logout/logout.component';
 import {SignupComponent} from './components/signup/signup.component';
+import {ToastModule} from 'primeng/toast';
+import {ToasterComponent} from './components/toaster/toaster.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import {SignupComponent} from './components/signup/signup.component';
     ContentDividerComponent,
     FooterComponent,
     LogoutComponent,
-    SignupComponent
+    SignupComponent,
+    ToasterComponent
   ],
   imports: [
     BrowserModule,
@@ -82,6 +85,7 @@ import {SignupComponent} from './components/signup/signup.component';
     SelectButtonModule,
     ToggleButtonModule,
     DialogModule,
+    ToastModule,
     RouterModule.forRoot([
       {path: '', component: AppComponent}
 
