@@ -23,6 +23,7 @@ Mongoose.Promise = global.Promise
 module.exports = {
     Mongoose,
     models: {
-        user: require('./schemas/user.js')
+        user: require('./schemas/user.js'),
+        entity: require('./schemas/entity.js')
     }
 }
