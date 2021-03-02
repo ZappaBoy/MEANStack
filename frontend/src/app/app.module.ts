@@ -1,46 +1,35 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {AppComponent} from './app.component';
-import {HomepageComponent} from './pages/homepage/homepage.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from './app.routing';
+
+import {AppComponent} from './app.component';
+import {HomepageComponent} from './pages/homepage/homepage.component';
 import {UserAccessComponent} from './components/user-access/user-access.component';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {InsertDataComponent} from './pages/insert-data/insert-data.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ButtonModule} from "primeng/button";
-import {RippleModule} from "primeng/ripple";
-import {TabViewModule} from 'primeng/tabview';
-import {MenubarModule} from 'primeng/menubar';
-import {TabMenuModule} from 'primeng/tabmenu';
-import {GalleriaModule} from 'primeng/galleria';
-import {HttpClientModule} from '@angular/common/http';
 import {SliderComponent} from './components/slider/slider.component';
 import {ContentDividerComponent} from './components/content-divider/content-divider.component';
-import {DividerModule} from 'primeng/divider';
 import {FooterComponent} from './components/footer/footer.component';
-import {InputTextModule} from 'primeng/inputtext';
-import {TableModule} from 'primeng/table';
-import {CustomerService} from "./services/customer.service";
-import {CalendarModule} from 'primeng/calendar';
-import {FormsModule} from "@angular/forms";
-import {CascadeSelectModule} from 'primeng/cascadeselect';
-import {CheckboxModule} from 'primeng/checkbox';
-import {DropdownModule} from 'primeng/dropdown';
-import {InputSwitchModule} from 'primeng/inputswitch';
-import {RadioButtonModule} from 'primeng/radiobutton';
-import {KeyFilterModule} from 'primeng/keyfilter';
-import {PasswordModule} from 'primeng/password';
-import {RatingModule} from 'primeng/rating';
-import {SliderModule} from 'primeng/slider';
-import {SelectButtonModule} from 'primeng/selectbutton';
-import {ToggleButtonModule} from 'primeng/togglebutton';
-import {DialogModule} from 'primeng/dialog';
 import {LogoutComponent} from './components/logout/logout.component';
 import {SignupComponent} from './components/signup/signup.component';
-import {ToastModule} from 'primeng/toast';
 import {ToasterComponent} from './components/toaster/toaster.component';
+
+import {ButtonModule} from "primeng/button";
+import {RippleModule} from "primeng/ripple";
+import {MenubarModule} from 'primeng/menubar';
+import {GalleriaModule} from 'primeng/galleria';
+import {DividerModule} from 'primeng/divider';
+import {InputTextModule} from 'primeng/inputtext';
+import {TableModule} from 'primeng/table';
+import {FormsModule} from "@angular/forms";
+import {PasswordModule} from 'primeng/password';
+import {SliderModule} from 'primeng/slider';
+import {DialogModule} from 'primeng/dialog';
+import {ToastModule} from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -64,35 +53,22 @@ import {ToasterComponent} from './components/toaster/toaster.component';
     BrowserAnimationsModule,
     ButtonModule,
     RippleModule,
-    TabViewModule,
     MenubarModule,
-    TabMenuModule,
     GalleriaModule,
     HttpClientModule,
     DividerModule,
     InputTextModule,
     TableModule,
-    CalendarModule,
-    CascadeSelectModule,
-    CheckboxModule,
-    DropdownModule,
-    InputSwitchModule,
-    RadioButtonModule,
-    KeyFilterModule,
     PasswordModule,
-    RatingModule,
     SliderModule,
-    SelectButtonModule,
-    ToggleButtonModule,
     DialogModule,
     ToastModule,
+    FormsModule,
     RouterModule.forRoot([
       {path: '', component: AppComponent}
-
-    ]),
-    FormsModule
+    ])
   ],
-  providers: [CustomerService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
