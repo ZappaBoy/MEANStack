@@ -45,9 +45,8 @@ body {
 }
 
 .dialog-popup {
-  width: 45vw;
-  height: 30vw;
-  padding: 1em;
+  width: auto !important;
+  height: auto !important;
   background-color: var(--light-background) !important;
 
   > * {
@@ -55,11 +54,28 @@ body {
   }
 
   .p-dialog-header {
-    padding: 3em 0 0 2em;
+    padding: 3em 0 0 1em;
     height: 2em;
   }
 }
 
+.p-dialog-content {
+  overflow-y: hidden !important;
+  padding: 1rem 4rem 4rem 4rem !important;
+}
+
 .p-dialog {
+  position: absolute;
+  height: auto !important;
+  overflow-y: hidden !important;
   max-height: 100% !important;
+}
+
+.p-menuitem-text {
+  margin: auto !important;
+}
+
+ul.p-menubar-root-list {
+  background-color: var(--primary-color) !important;
+  margin: auto;
 }

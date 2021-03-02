@@ -37,9 +37,10 @@ export class SignupComponent implements OnInit {
     if (this.inputAccepted()) {
       this.userAccessService.signup(this.user)
         .subscribe((res) => {
-          console.log(res)
-          this.registrationSuccessful = true
-          this.toastService.registrationSuccessful()
+          if (res.status === 200) {
+            this.registrationSuccessful = true
+            this.toastService.registrationSuccessful()
+          }
           this.showDialog(false)
         }, (error) => {
           console.log(error)
