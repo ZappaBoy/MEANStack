@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserAccessService} from "../../services/user-access.service";
-import {User} from "../../models/user.model";
 import {ToastService} from "../../services/toast.service";
+import {User} from "../../models/user.model";
 
 const MINIMUM_PASSWORD_LENGTH = 10
 
