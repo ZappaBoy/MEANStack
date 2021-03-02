@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserAccessService} from "../../services/user-access.service";
 import {User} from "../../models/user.model";
+import {ToastService} from "../../services/toast.service";
 
 const MINIMUM_PASSWORD_LENGTH = 10
 
@@ -20,11 +21,16 @@ export class SignupComponent implements OnInit {
   registrationSuccessful: boolean
   registrationError: boolean
 
-  constructor(private userAccessService: UserAccessService) {
+  constructor(private userAccessService: UserAccessService,
+              private toastService: ToastService) {
   }
 
   showDialog() {
     this.display = true;
+  }
+
+  closeDialog() {
+    this.display = false;
   }
 
   ngOnInit(): void {
@@ -37,6 +43,8 @@ export class SignupComponent implements OnInit {
         .subscribe((res) => {
           console.log(res)
           this.registrationSuccessful = true
+          this.toastService.registrationSuccessful()
+          this.closeDialog()
         }, (error) => {
           console.log(error)
           if (error.status === 409) {

@@ -11,6 +11,7 @@ const BASE_URL = 'http://' + IP + ':' + PORT
 const USER_ROUTE = BASE_URL + '/users'
 
 const SIGNUP = USER_ROUTE + '/register'
+const LOGIN = USER_ROUTE + '/authentication'
 
 const headers = new HttpHeaders({
   'Content-Type': 'application/json'
@@ -26,11 +27,10 @@ export class UserAccessService {
   }
 
   signup(user: User): Observable<any> {
-    let body = {
-      'username': user.username,
-      'password': user.password
-    }
+    return this.http.post<any>(SIGNUP, user, options)
+  }
 
-    return this.http.post<any>(SIGNUP, body, options)
+  login(user: User): Observable<User> {
+    return this.http.post<User>(LOGIN, user, options)
   }
 }
