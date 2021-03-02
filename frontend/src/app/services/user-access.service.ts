@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../environments/environment";
+import {User} from "../models/user.model";
+import {Observable} from "rxjs";
 
 const IP = environment.BACKEND_IP || '127.0.0.1'
 const PORT = environment.BACKEND_PORT || '8888'
@@ -23,21 +25,12 @@ export class UserAccessService {
   constructor(private http: HttpClient) {
   }
 
-  signup(username: string, password: string) {
+  signup(user: User): Observable<any> {
     let body = {
-      'username': username,
-      'password': password
+      'username': user.username,
+      'password': user.password
     }
 
-    return this.http.post(SIGNUP, body, options)
-      .subscribe(
-        (data) => {
-          return true
-        },
-        (error) => {
-          return false
-        }
-      )
-
+    return this.http.post<any>(SIGNUP, body, options)
   }
 }
