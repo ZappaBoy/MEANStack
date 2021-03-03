@@ -1,116 +1,90 @@
 import {Component, OnInit} from '@angular/core';
+import {ToastService} from "../../services/toast.service";
+import {BackendService} from "../../services/backend.service";
+import {Entity} from "../../models/entity.model";
 
 @Component({
   selector: 'app-insert-data',
   templateUrl: './insert-data.component.html',
   styleUrls: ['./insert-data.component.scss']
 })
-export class InsertDataComponent implements OnInit {
-  dateValue: any;
-  selectedCity1: any;
-  countries: any;
-  selectedValues: any;
-  cities: any;
-  selectedCityCode: any;
-  checked: any;
-  selectedValue: any;
-  val: any;
-  stateOptions: any;
-  paymentOptions: any;
-  justifyOptions: any;
-  value1: string = "off";
-  value2: number;
-  value3: any;
-  checked1: boolean = false;
-  checked2: boolean = true;
-  val1: number;
-  val2: number = 50;
-  val3: number;
-  val4: number;
-  rangeValues: number[] = [20, 80];
-  date2: any;
-  selectedCity2: any;
 
-  constructor() {
+export class InsertDataComponent implements OnInit {
+  dateFormat: string = "dd-mm-yy"
+  display: boolean;
+  badAuthorValue: boolean;
+  badContentValue: boolean;
+  badIdValue: boolean;
+
+  entity: Entity = new Entity();
+
+  constructor(private toastService: ToastService,
+              private backendService: BackendService) {
   }
 
   ngOnInit(): void {
-    this.countries = [
-      {
-        name: 'Australia',
-        code: 'AU',
-        states: [
-          {
-            name: 'New South Wales',
-            cities: [
-              {cname: 'Sydney', code: 'A-SY'},
-              {cname: 'Newcastle', code: 'A-NE'},
-              {cname: 'Wollongong', code: 'A-WO'}
-            ]
-          },
-          {
-            name: 'Queensland',
-            cities: [
-              {cname: 'Brisbane', code: 'A-BR'},
-              {cname: 'Townsville', code: 'A-TO'}
-            ]
-          },
-
-        ]
-      },
-      {
-        name: 'Canada',
-        code: 'CA',
-        states: [
-          {
-            name: 'Quebec',
-            cities: [
-              {cname: 'Montreal', code: 'C-MO'},
-              {cname: 'Quebec City', code: 'C-QU'}
-            ]
-          },
-          {
-            name: 'Ontario',
-            cities: [
-              {cname: 'Ottawa', code: 'C-OT'},
-              {cname: 'Toronto', code: 'C-TO'}
-            ]
-          },
-
-        ]
-      },
-      {
-        name: 'United States',
-        code: 'US',
-        states: [
-          {
-            name: 'California',
-            cities: [
-              {cname: 'Los Angeles', code: 'US-LA'},
-              {cname: 'San Diego', code: 'US-SD'},
-              {cname: 'San Francisco', code: 'US-SF'}
-            ]
-          },
-          {
-            name: 'Florida',
-            cities: [
-              {cname: 'Jacksonville', code: 'US-JA'},
-              {cname: 'Miami', code: 'US-MI'},
-              {cname: 'Tampa', code: 'US-TA'},
-              {cname: 'Orlando', code: 'US-OR'}
-            ]
-          },
-          {
-            name: 'Texas',
-            cities: [
-              {cname: 'Austin', code: 'US-AU'},
-              {cname: 'Dallas', code: 'US-DA'},
-              {cname: 'Houston', code: 'US-HO'}
-            ]
-          }
-        ]
-      }
-    ];
+    this.entity.id = this.randomIdGeneration()
   }
 
+  submitValues() {
+    this.clearErrors()
+    if (this.valuesAccepted()) {
+      this.askConfirmation()
+    } else {
+      this.showErrors()
+    }
+  }
+
+  confirmSubmission() {
+    this.backendService.addEntity(this.entity)
+      .subscribe(() => {
+        this.showConfirmationDialog(false)
+        this.toastService.submissionSuccessful()
+      }, () => {
+        this.toastService.error()
+      })
+  }
+
+  abort() {
+    this.showConfirmationDialog(false)
+  }
+
+  setInvalidIf(status: boolean) {
+    return {'invalid-input': status}
+  }
+
+  randomIdGeneration() {
+    let randomId = Math.random().toString(36).substring(10, 15) + Math.random().toString(36).substring(10, 15);
+    return randomId.toUpperCase()
+  }
+
+  private showErrors() {
+
+  }
+
+  private clearErrors() {
+    this.badAuthorValue = false
+    this.badContentValue = false
+  }
+
+  private valuesAccepted(): boolean {
+    if (this.entity.id === undefined || this.entity.id.length <= 0) {
+      this.badIdValue = true
+    }
+    if (this.entity.data.author === undefined || this.entity.data.author.length <= 0) {
+      this.badAuthorValue = true
+    }
+    if (this.entity.data.content === undefined || this.entity.data.content.length <= 0) {
+      this.badContentValue = true
+    }
+    return !(this.badAuthorValue || this.badContentValue);
+  }
+
+  private askConfirmation() {
+    this.showConfirmationDialog()
+  }
+
+  private showConfirmationDialog(status: boolean = true) {
+    this.display = status
+  }
 }

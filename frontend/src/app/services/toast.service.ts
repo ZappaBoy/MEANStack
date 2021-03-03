@@ -19,6 +19,12 @@ export class ToastService {
     detail: "Login successful"
   }
 
+  submissionSuccessfulMessage: Message = {
+    severity: "success",
+    summary: "Success",
+    detail: "Submission successful"
+  }
+
   errorMessage: Message = {
     severity: "error",
     summary: "Error",
@@ -39,6 +45,10 @@ export class ToastService {
 
   loginSuccessful() {
     this.showToast(this.loginSuccessfulMessage)
+  }
+
+  submissionSuccessful() {
+    this.showToast(this.submissionSuccessfulMessage)
   }
 
   error() {

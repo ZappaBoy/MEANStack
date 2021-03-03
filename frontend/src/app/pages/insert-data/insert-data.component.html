@@ -1,197 +1,88 @@
 <div id="insert-data">
 
-  <div class="p-field p-col-12 p-md-4">
-    <label for="dateformat">DateFormat</label>
-    <p-calendar [(ngModel)]="date2" dateFormat="mm-dd-yy" inputId="dateformat"></p-calendar>
+  <div class="form-data">
+    <h2>Compile the form below</h2>
+    <div class="p-fluid p-grid p-formgrid">
+
+      <div class="p-field p-col-12 p-md-4">
+        <label for="id">ID</label>
+        <span class="p-input-icon-right">
+          <i class="pi pi-id-card"></i>
+          <input [(ngModel)]="entity.id" [ngClass]="setInvalidIf(this.badIdValue)" id="id" pInputText placeholder="ID"
+                 type="text">
+        </span>
+      </div>
+
+      <div class="p-field p-col-12 p-md-4">
+        <label for="author">Author</label>
+        <span class="p-input-icon-right">
+          <i class="pi pi-user"></i>
+          <input [(ngModel)]="entity.data.author" [ngClass]="setInvalidIf(this.badAuthorValue)" id="author" pInputText
+                 placeholder="Author" type="text">
+        </span>
+      </div>
+
+      <div class="p-field p-col-12 p-md-4">
+        <label for="dateformat">Date</label>
+        <p-calendar [(ngModel)]="entity.data.date" dateFormat="{{dateFormat}}" icon="pi pi-calendar" id="dateformat"
+                    placeholder="Date" showIcon="true"></p-calendar>
+      </div>
+
+      <div class="p-field p-col-12 p-md-4">
+        <label for="content">Content</label>
+        <span class="p-input-icon-right">
+          <i class="pi pi-align-center"></i>
+          <input [(ngModel)]="entity.data.content" [ngClass]="setInvalidIf(this.badContentValue)" id="content"
+                 pInputText placeholder="Content" type="text">
+        </span>
+      </div>
+
+      <div class="p-field p-col-12 p-md-4">
+        <label for="price">Price</label>
+        <span class="p-input-icon-right">
+          <i class="pi pi-euro"></i>
+          <input [(ngModel)]="entity.data.price" id="price" pInputText placeholder="Price" type="number">
+        </span>
+      </div>
+    </div>
+
+    <div class="p-button-success p-text-center">
+      <p-button (onClick)="submitValues()" icon="pi pi-check" iconPos="right" label="Submit"></p-button>
+    </div>
+
+    <div class="confirmation-dialog">
+      <p-dialog [(visible)]="display" [draggable]="false"
+                [focusOnShow]="true"
+                class="signup-dialog"
+                styleClass="signup-dialog dialog-popup">
+        <div id="signup-panel">
+          <div class="card">
+            <h2>Confirm submitted data?</h2>
+
+            <div class="p-d-flex p-ai-center p-jc-center">
+              <div class="p-fluid">
+                <p-button (click)="abort()" autofocus icon="pi pi-sign-out" id="quit-button" label="Cancel"
+                          type="button"></p-button>
+
+              </div>
+            </div>
+            <div class="p-d-flex p-ai-center p-jc-center">
+              <p-divider layout="horizontal">
+              </p-divider>
+            </div>
+            <div class="p-d-flex p-ai-center p-jc-center">
+              <p-button (click)="confirmSubmission()" icon="pi pi-sign-in p-button-success" label="Confirm"
+                        styleClass="p-button-success"
+                        type="button"></p-button>
+            </div>
+
+            <!--            <div class="p-button-success p-text-center">-->
+            <!--              <p-button label="Confirm" (onClick)="confirmSubmission()" icon="pi pi-check" iconPos="right"></p-button>-->
+            <!--            </div>-->
+          </div>
+        </div>
+      </p-dialog>
+    </div>
+
   </div>
-
-  <h5>Basic</h5>
-  <p-cascadeSelect [(ngModel)]="selectedCity1" [optionGroupChildren]="['states', 'cities']" [options]="countries"
-                   [style]="{'minWidth': '14rem'}"
-                   optionGroupLabel="name" optionLabel="cname" placeholder="Select a City"></p-cascadeSelect>
-
-  <h5>Templating</h5>
-  <p-cascadeSelect [(ngModel)]="selectedCity2" [optionGroupChildren]="['states', 'cities']" [options]="countries"
-                   [style]="{'minWidth': '14rem'}"
-                   optionGroupLabel="name" optionLabel="cname" placeholder="Select a City">
-    <ng-template let-option pTemplate="option">
-      <div class="country-item">
-        <img *ngIf="option.states" [class]="'flag flag-' + option.code.toLowerCase()" alt="" src="../../../assets"/>
-        <i *ngIf="option.cities" class="pi pi-compass p-mr-2"></i>
-        <i *ngIf="option.cname" class="pi pi-map-marker p-mr-2"></i>
-        <span>{{option.cname || option.name}}</span>
-      </div>
-    </ng-template>
-  </p-cascadeSelect>
-
-  <p-checkbox [(ngModel)]="selectedValues" label="Value 1" name="groupname" value="val1"></p-checkbox>
-  <p-checkbox [(ngModel)]="selectedValues" label="Value 2" name="groupname" value="val2"></p-checkbox>
-
-  <p-dropdown [(ngModel)]="selectedCityCode" [options]="cities" optionLabel="name" optionValue="code"></p-dropdown>
-
-
-  <h5>Addons</h5>
-  <div class="p-grid p-fluid">
-    <div class="p-col-12 p-md-4">
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-        <label>
-          <input pInputText placeholder="Username" type="text">
-        </label>
-      </div>
-    </div>
-
-    <div class="p-col-12 p-md-4">
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon">$</span>
-        <label>
-          <input pInputText placeholder="Price" type="text">
-        </label>
-        <span class="p-inputgroup-addon">.00</span>
-      </div>
-    </div>
-
-    <div class="p-col-12 p-md-4">
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon">www</span>
-        <label>
-          <input pInputText placeholder="Website" type="text">
-        </label>
-      </div>
-    </div>
-  </div>
-
-  <h5>Multiple Addons</h5>
-  <div class="p-grid">
-    <div class="p-col-12">
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon"><i class="pi pi-tags" style="line-height: 1.25;"></i></span>
-        <span class="p-inputgroup-addon"><i class="pi pi-shopping-cart" style="line-height: 1.25;"></i></span>
-        <label>
-          <input pInputText placeholder="Price" type="text">
-        </label>
-        <span class="p-inputgroup-addon">$</span>
-        <span class="p-inputgroup-addon">.00</span>
-      </div>
-    </div>
-  </div>
-
-  <h5>Button Addons</h5>
-  <div class="p-grid p-fluid">
-    <div class="p-col-12 p-md-4">
-      <div class="p-inputgroup">
-        <button label="Search" pButton pRipple type="button"></button>
-        <label>
-          <input pInputText placeholder="Keyword" type="text">
-        </label>
-      </div>
-    </div>
-
-    <div class="p-col-12 p-md-4">
-      <div class="p-inputgroup">
-        <label>
-          <input pInputText placeholder="Keyword" type="text">
-        </label>
-        <button icon="pi pi-refresh" pButton pRipple styleClass="p-button-warn" type="button"></button>
-      </div>
-    </div>
-
-    <div class="p-col-12 p-md-4">
-      <div class="p-inputgroup">
-        <button icon="pi pi-check" pButton pRipple styleClass="p-button-success" type="button"></button>
-        <label>
-          <input pInputText placeholder="Vote" type="text">
-        </label>
-        <button icon="pi pi-times" pButton pRipple styleClass="p-button-danger" type="button"></button>
-      </div>
-    </div>
-  </div>
-
-  <h5>Checkbox and RadioButton</h5>
-  <div class="p-grid p-fluid">
-    <div class="p-col-12 p-md-12">
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon"><p-checkbox></p-checkbox></span>
-        <label>
-          <input pInputText placeholder="Username" type="text">
-        </label>
-      </div>
-    </div>
-
-    <div class="p-col-12 p-md-12">
-      <div class="p-inputgroup">
-        <input pInputText placeholder="Price" type="text">
-        <span class="p-inputgroup-addon"><p-radioButton></p-radioButton></span>
-      </div>
-    </div>
-
-    <div class="p-col-12 p-md-12">
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon"><p-checkbox></p-checkbox></span>
-        <label>
-          <input pInputText placeholder="Website" type="text">
-        </label>
-        <span class="p-inputgroup-addon"><p-radioButton></p-radioButton></span>
-      </div>
-    </div>
-  </div>
-
-  <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
-
-  <div class="p-field p-col-12 p-md-4">
-    <label for="inputtext"></label><input class="ng-invalid ng-dirty" id="inputtext" pInputText placeholder="InputText"
-                                          type="text">
-  </div>
-
-  <label>
-    <input pKeyFilter="int" type="text">
-  </label>
-
-  <label>
-    <input pPassword type="password"/>
-  </label>
-
-  <p-radioButton [(ngModel)]="selectedValue" name="groupname" value="val1"></p-radioButton>
-  <p-radioButton [(ngModel)]="selectedValue" name="groupname" value="val2"></p-radioButton>
-
-  <p-rating [(ngModel)]="val"></p-rating>
-
-
-  <h5>Basic: {{val1}}</h5>
-  <p-slider [(ngModel)]="val1"></p-slider>
-
-  <h5>Input: {{val2}}</h5>
-  <input [(ngModel)]="val2" pInputText readonly type="text"/>
-  <p-slider [(ngModel)]="val2"></p-slider>
-
-  <h5>Step: {{val3}}</h5>
-  <p-slider [(ngModel)]="val3" [step]="20"></p-slider>
-
-  <h5>Range: {{rangeValues[0] + ' - ' + rangeValues[1]}}</h5>
-  <p-slider [(ngModel)]="rangeValues" [range]="true"></p-slider>
-
-  <h5>Vertical: {{val4}}</h5>
-  <p-slider [(ngModel)]="val4" orientation="vertical"></p-slider>
-
-  <p-selectButton [(ngModel)]="value1" [options]="stateOptions" optionLabel="label"
-                  optionValue="value"></p-selectButton>
-
-  <h5>Multiple Selection</h5>
-  <p-selectButton [(ngModel)]="value2" [options]="paymentOptions" multiple="multiple" optionLabel="name"
-                  optionValue="value"></p-selectButton>
-
-  <h5>Custom Template</h5>
-  <p-selectButton [(ngModel)]="value3" [options]="justifyOptions" optionLabel="icon">
-    <ng-template let-item>
-      <i [class]="item.icon"></i>
-    </ng-template>
-  </p-selectButton>
-
-  <p-toggleButton [(ngModel)]="checked1" offIcon="pi pi-times" onIcon="pi pi-check"></p-toggleButton>
-
-  <h5>Customized</h5>
-  <p-toggleButton [(ngModel)]="checked2" [style]="{'width': '10em'}" offIcon="pi pi-times" offLabel="I reject"
-                  onIcon="pi pi-check" onLabel="I confirm"></p-toggleButton>
-
-
 </div>

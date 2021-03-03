@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DialogService} from "primeng/dynamicdialog";
 import {User} from "../../models/user.model";
-import {UserAccessService} from "../../services/user-access.service";
+import {BackendService} from "../../services/backend.service";
 import {ToastService} from "../../services/toast.service";
 import {LocalStorageService} from "../../services/local-storage.service";
 
@@ -20,7 +20,7 @@ export class UserAccessComponent implements OnInit {
     this.display = status;
   }
 
-  constructor(private userAccessService: UserAccessService,
+  constructor(private backendService: BackendService,
               private toastService: ToastService,
               private localStorage: LocalStorageService) {
   }
@@ -29,8 +29,8 @@ export class UserAccessComponent implements OnInit {
   }
 
   login(): void {
-    this.userAccessService.login(this.user)
-      .subscribe((res) => {
+    this.backendService.login(this.user)
+      .subscribe(() => {
         this.toastService.loginSuccessful()
         this.localStorage.setLoggedStatus()
         this.showDialog(false)
