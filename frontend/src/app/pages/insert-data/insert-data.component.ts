@@ -30,8 +30,6 @@ export class InsertDataComponent implements OnInit {
     this.clearErrors()
     if (this.valuesAccepted()) {
       this.askConfirmation()
-    } else {
-      this.showErrors()
     }
   }
 
@@ -54,12 +52,8 @@ export class InsertDataComponent implements OnInit {
   }
 
   randomIdGeneration() {
-    let randomId = Math.random().toString(36).substring(10, 15) + Math.random().toString(36).substring(10, 15);
+    let randomId = Math.random().toString(36).substring(5, 10);
     return randomId.toUpperCase()
-  }
-
-  private showErrors() {
-
   }
 
   private clearErrors() {
