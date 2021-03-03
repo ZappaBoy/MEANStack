@@ -16,6 +16,7 @@ const SIGNUP = USER_ROUTE + '/register'
 const LOGIN = USER_ROUTE + '/authenticate'
 const ADD_ENTITY = ENTITY_ROUTE + '/add'
 const GET_ENTITY = ENTITY_ROUTE + '/get'
+const GET_ENTITIES = ENTITY_ROUTE + '/get-all'
 
 const headers = new HttpHeaders({
   'Content-Type': 'application/json'
@@ -44,5 +45,9 @@ export class BackendService {
 
   getEntity(entity: Entity): Observable<Entity> {
     return this.http.post<Entity>(GET_ENTITY, entity, options)
+  }
+
+  getAllEntites(): Observable<Entity[]> {
+    return this.http.post<Entity[]>(GET_ENTITIES, {}, options)
   }
 }

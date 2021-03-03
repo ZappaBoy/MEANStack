@@ -33,4 +33,18 @@ router.post('/get', async function (req, res, next) {
     res.end()
 })
 
+router.post('/get-all', async function (req, res, next) {
+    let entitiesData = await entity.getAllEntities()
+        .then((entities, error) => {
+            if (error) {
+                res.status(500)
+                res.end()
+            }
+            return entities
+        })
+    res.status(200)
+    res.send(entitiesData)
+    res.end()
+})
+
 module.exports = router

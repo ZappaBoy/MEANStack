@@ -10,7 +10,7 @@ import {Entity} from "../../models/entity.model";
 })
 
 export class InsertDataComponent implements OnInit {
-  dateFormat: string = "dd-mm-yy"
+  dateFormat: string = "dd/mm/yy"
   display: boolean;
   badAuthorValue: boolean;
   badContentValue: boolean;

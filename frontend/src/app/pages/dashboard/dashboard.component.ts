@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {CustomerService} from "../../services/customer.service";
-import {Customer} from "../../models/customer.model";
+import {Entity} from "../../models/entity.model";
+import {BackendService} from "../../services/backend.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -8,20 +8,50 @@ import {Customer} from "../../models/customer.model";
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  customers1: Customer[];
+  entity: Entity = new Entity();
+  entities: Entity[];
+  selectedEntity: Entity;
+  cols: any[];
+  dataCol: any[];
 
-  customers2: Customer[];
-
-  selectedCustomer1: Customer;
-
-  selectedCustomer2: Customer;
-
-  constructor(private customerService: CustomerService) {
+  constructor(private backendService: BackendService) {
   }
 
   ngOnInit() {
-    this.customerService.getCustomersMedium().then(data => this.customers1 = data);
-    this.customerService.getCustomersMedium().then(data => this.customers2 = data);
+    this.backendService.getAllEntites()
+      .subscribe((data) => {
+        this.entities = data
+      });
+    this.prepareEntity()
+  }
+
+  capitalize(string: string): string {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+  private prepareEntity() {
+    this.entity.id = ""
+    this.entity.data.author = ""
+    this.entity.data.content = ""
+    this.entity.data.date = new Date()
+    this.entity.data.price = 0
+
+    this.cols = [{
+      field: 'id',
+      header: 'ID'
+    }]
+
+    this.dataCol = []
+
+    const keys = Object.keys(this.entity.data)
+    const position = this.cols.length
+    for (let i = 0; i < keys.length; i++) {
+      this.dataCol[i] = keys[i]
+      this.cols[position + i] = {
+        field: keys[i],
+        header: this.capitalize(keys[i])
+      }
+    }
   }
 
 }

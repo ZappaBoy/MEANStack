@@ -55,6 +55,22 @@ async function getEntity(id) {
     })
 }
 
+async function getAllEntities() {
+    return new Promise((resolve, reject) => {
+        entityModel.find({}, (error, data) => {
+            if (data !== null) {
+                resolve(data);
+            } else {
+                if (!error) {
+                    reject(error)
+                } else {
+                    reject(error)
+                }
+            }
+        })
+    })
+}
+
 async function changeEntity({entity}) {
     return new Promise((resolve, reject) => {
         resolve(entityModel.updateOne({'id': entity.id},
@@ -70,5 +86,6 @@ async function changeEntity({entity}) {
 module.exports = {
     saveEntity,
     getEntity,
+    getAllEntities,
     changeEntity
 }

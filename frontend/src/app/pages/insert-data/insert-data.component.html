@@ -26,7 +26,8 @@
 
         <div class="p-field p-col-12 p-md-4">
           <label for="dateformat">Date</label>
-          <p-calendar [(ngModel)]="entity.data.date" dateFormat="{{dateFormat}}" icon="pi pi-calendar" id="dateformat"
+          <p-calendar [(ngModel)]="entity.data.date" dateFormat="{{dateFormat}}" hourFormat="24" icon="pi pi-calendar"
+                      id="dateformat" showTime="true"
                       placeholder="Date" showIcon="true"></p-calendar>
         </div>
 
