@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {UserAccessService} from "../../services/user-access.service";
+import {BackendService} from "../../services/backend.service";
 import {ToastService} from "../../services/toast.service";
 import {User} from "../../models/user.model";
 
@@ -21,7 +21,7 @@ export class SignupComponent implements OnInit {
   registrationSuccessful: boolean
   registrationError: boolean
 
-  constructor(private userAccessService: UserAccessService,
+  constructor(private backendService: BackendService,
               private toastService: ToastService) {
   }
 
@@ -35,30 +35,27 @@ export class SignupComponent implements OnInit {
   signup(): void {
     this.resetErrors()
     if (this.inputAccepted()) {
-      this.userAccessService.signup(this.user)
-        .subscribe((res) => {
-          if (res.status === 200) {
+      this.backendService.signup(this.user)
+          .subscribe(() => {
             this.registrationSuccessful = true
             this.toastService.registrationSuccessful()
-          }
-          this.showDialog(false)
-        }, (error) => {
-          console.log(error)
-          if (error.status === 409) {
-            this.usernameNotAvailable = true
-          } else {
-            this.registrationError = true
-            this.toastService.error()
-          }
-        })
+            this.showDialog(false)
+          }, (error) => {
+            if (error && error.status === 409) {
+              this.usernameNotAvailable = true
+            } else {
+              this.registrationError = true
+              this.toastService.error()
+            }
+          })
     }
   }
 
   inputAccepted(): boolean {
-    if (this.user.password.length < 1) {
+    if (this.user.username === undefined || this.user.username.length < 1) {
       this.usernameNotAvailable = true
       return false
-    } else if (this.user.password.length < MINIMUM_PASSWORD_LENGTH) {
+    } else if (this.user.password === undefined || this.user.password.length < MINIMUM_PASSWORD_LENGTH) {
       this.passwordNotAccepted = true
       return false
     } else {
