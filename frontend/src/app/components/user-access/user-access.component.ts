@@ -30,7 +30,7 @@ export class UserAccessComponent implements OnInit {
 
   login(): void {
     this.backendService.login(this.user)
-      .subscribe(() => {
+      .subscribe((user) => {
         this.toastService.loginSuccessful()
         this.localStorage.setLoggedStatus()
         this.showDialog(false)
