@@ -5,9 +5,15 @@ services:
     restart: always
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     env_file: .env
     ports:
       - "${PORT}:80"
     volumes:
       - .:/app
+    networks:
+      - mean-net
+
+networks:
+  mean-net:
+    driver: bridge

@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 8888
 
 const FRONTEND_IP = process.env.FRONTEND_IP || 'localhost'
 const FRONTEND_PORT = process.env.FRONTEND_PORT || '4200'
-const FRONTEND_ORIGIN = 'http://' + FRONTEND_IP + ':' + FRONTEND_PORT
+const FRONTEND_ORIGIN = '*' //'http://' + FRONTEND_IP + ':' + FRONTEND_PORT
 
 let corsOptions = {
     allowedHeaders: ['Content-Type'],
@@ -35,7 +35,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }))
 
-app.use('/', router)
+app.use('/api', router)
 
 app.use((req, res) => {
     res.status(404)

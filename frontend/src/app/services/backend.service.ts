@@ -7,7 +7,8 @@ import {Entity} from "../models/entity.model";
 
 const IP = environment.BACKEND_IP || '127.0.0.1'
 const PORT = environment.BACKEND_PORT || '8888'
-const BASE_URL = 'http://' + IP + ':' + PORT
+const API_ENDPOINT = '/api'
+const BASE_URL = 'http://' + IP + ':' + PORT + API_ENDPOINT
 
 const USER_ROUTE = BASE_URL + '/users'
 const ENTITY_ROUTE = BASE_URL + '/entity'
