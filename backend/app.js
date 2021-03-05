@@ -29,8 +29,6 @@ for (let i = 0; i < FRONTEND_ORIGINS.length; i++) {
     ORIGINS.push(origin)
 }
 
-console.log(ORIGINS)
-
 let corsOptions = {
     allowedHeaders: ['Content-Type'],
     preflightContinue: true,
