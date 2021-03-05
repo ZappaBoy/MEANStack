@@ -26,7 +26,7 @@ const FRONTEND_ORIGIN = 'http://' + FRONTEND_IP + ':' + FRONTEND_PORT
 let corsOptions = {
     allowedHeaders: ['Content-Type'],
     preflightContinue: true,
-    origin: FRONTEND_ORIGIN
+    origin: '*'//FRONTEND_ORIGIN
 };
 app.use(cors(corsOptions));
 
