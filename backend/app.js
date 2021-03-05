@@ -19,14 +19,22 @@ app.use(helmet())
 
 const PORT = process.env.PORT || 8888
 
-const FRONTEND_IP = process.env.FRONTEND_IP || 'localhost'
+const FRONTEND_ORIGINS = process.env.FRONTEND_ORIGINS.split(",") || 'localhost'
 const FRONTEND_PORT = process.env.FRONTEND_PORT || '4200'
-const FRONTEND_ORIGIN = 'http://' + FRONTEND_IP + ':' + FRONTEND_PORT
+let ORIGINS = []
+
+for (let i = 0; i < FRONTEND_ORIGINS.length; i++) {
+    let origin = ('http://' + FRONTEND_ORIGINS[i] + ':' + FRONTEND_PORT)
+    origin = origin.replace(/\s/g, '');
+    ORIGINS.push(origin)
+}
+
+console.log(ORIGINS)
 
 let corsOptions = {
     allowedHeaders: ['Content-Type'],
     preflightContinue: true,
-    origin: FRONTEND_ORIGIN
+    origin: ORIGINS
 };
 app.use(cors(corsOptions));
 
