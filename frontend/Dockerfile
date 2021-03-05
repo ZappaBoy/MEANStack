@@ -1,9 +1,9 @@
-FROM node:14 as builder
+FROM node:latest as builder
 
-WORKDIR /app
+WORKDIR /usr/src/app
 COPY package*.json ./
 
-RUN npm ci
+RUN npm i -g npm && npm ci && npm audit fix
 
 COPY . .
 
