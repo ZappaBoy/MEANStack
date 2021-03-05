@@ -22,6 +22,8 @@ Furthermore, the project is production-ready thanks to the use of the Docker eng
 deployment. And last but not least this stack is fully open source, which means that many developers work every day on
 all these components.
 
+To start or stop both backend and frontend dockers use `./start.sh` and `./stop.sh`
+
 <a id="org60afa7f"></a>
 
 # MEAN explanation
