@@ -12,6 +12,6 @@ RUN npx ng build --prod frontend
 FROM nginx
 
 COPY --from=builder /usr/src/app/dist/frontend /usr/share/nginx/html
-COPY nginx-default.conf /etc/nginx/conf.d/default.conf
+COPY nginx-proxy.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
