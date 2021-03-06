@@ -16,7 +16,7 @@ services:
       - mongodb
     networks:
       - mean-net
-      - mean-backend-net
+      - mean-mongo-net
   mongodb:
     image: 'mongo:latest'
     container_name: mean_mongodb
@@ -30,7 +30,7 @@ services:
     volumes:
       - './mongo-volume:/data/db'
     networks:
-      - mean-backend-net
+      - mean-mongo-net
 volumes:
   mongodb_data:
     driver: local
@@ -38,4 +38,4 @@ volumes:
 networks:
   mean-net:
     driver: bridge
-  mean-backend-net:
+  mean-mongo-net:
