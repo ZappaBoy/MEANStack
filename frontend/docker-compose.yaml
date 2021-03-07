@@ -10,7 +10,7 @@ services:
     ports:
       - "${PORT}:80"
     volumes:
-      - .:/app
+      - .:/usr/src/app/
     networks:
       - mean-net
 
