@@ -36,7 +36,7 @@ export class InsertDataComponent implements OnInit {
     }
   }
 
-  confirmSubmission($event: Event) {
+  confirmSubmission(event: Event) {
     this.confirmationService.confirm({
       target: event.target,
       message: 'Are you sure that you want to proceed?',
