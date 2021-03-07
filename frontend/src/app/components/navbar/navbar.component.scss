@@ -11,7 +11,7 @@ $navbar-height: 3em;
     width: 100%;
     background-color: var(--primary-color) !important;
     font-size: var(--font-medium);
-    color: var(--text-color-light) !important;
+    color: var(--text-color-secondary) !important;
     margin: 0;
   }
 }
@@ -42,7 +42,7 @@ span {
 
   .p-menuitem-text {
     font-size: var(--font-medium);
-    color: var(--text-color-light) !important;
+    color: var(--text-color-secondary) !important;
     margin: 0;
   }
 

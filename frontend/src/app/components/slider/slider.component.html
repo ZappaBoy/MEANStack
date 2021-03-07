@@ -1,6 +1,6 @@
 <p-galleria [autoPlay]="true" [circular]="true" [numVisible]="1" [showIndicatorsOnItem]="false"
             [showIndicators]="false"
-            [showItemNavigators]="false" [showThumbnailNavigators]="false" [value]="images">
+            [showItemNavigators]="false" [showThumbnailNavigators]="true" [value]="images">
   <ng-template let-item pTemplate="thumbnail">
     <div class="p-grid p-nogutter p-justify-center p-ac-center gallery">
       <img [src]="item.thumbnailImageSrc" alt=""/>

@@ -18,14 +18,29 @@ export class SliderComponent implements OnInit {
 
     this.imagesAsset = [
       {
-        "thumbnailImageSrc": "assets/images/abstract1.png",
+        "thumbnailImageSrc": "assets/images/mean.png",
         "alt": "",
-        "title": "Welcome..."
+        "title": "MEAN stack"
       },
       {
-        "thumbnailImageSrc": "assets/images/abstract2.jpg",
+        "thumbnailImageSrc": "assets/images/mongodb.png",
         "alt": "",
-        "title": "...to the future"
+        "title": "MongoDB"
+      },
+      {
+        "thumbnailImageSrc": "assets/images/express.png",
+        "alt": "",
+        "title": "Express"
+      },
+      {
+        "thumbnailImageSrc": "assets/images/angular.png",
+        "alt": "",
+        "title": "Angular"
+      },
+      {
+        "thumbnailImageSrc": "assets/images/nodejs.jpg",
+        "alt": "",
+        "title": "Node.js"
       }
     ]
 

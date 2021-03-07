@@ -6,9 +6,16 @@
 @import "~primeflex/primeflex.css";*/
 
 :root {
-  --text-color-light: #ffffff;
-  --text-color-dark: #121420;
-  --light-background: #f3f3f3;
+  --primary-color: #224870 !important;
+  --surface-a: #f4f4f8 !important;
+  --surface-b: #fafafa !important;
+  --surface-c: rgba(0, 0, 0, .04) !important;
+  --surface-d: rgba(0, 0, 0, .12) !important;
+  --surface-e: #f4f4f8 !important;
+  --surface-f: #f4f4f8 !important;
+  --text-color: rgba(0, 0, 0, 0.87) !important;
+  --text-color-secondary: #f4f4f8 !important;
+  --primary-color-text: #f4f4f8 !important;
 
   --font-family: 'Proxima Nova Rg', serif !important;
   --font-small: 14px;
@@ -47,10 +54,10 @@ body {
 .dialog-popup {
   width: auto !important;
   height: auto !important;
-  background-color: var(--light-background) !important;
+  background-color: var(--surface-a) !important;
 
   > * {
-    background-color: var(--light-background) !important;
+    background-color: var(--surface-a) !important;
   }
 
   .p-dialog-header {
@@ -78,4 +85,12 @@ body {
 ul.p-menubar-root-list {
   background-color: var(--primary-color) !important;
   margin: auto;
+}
+
+.p-button {
+  background: var(--primary-color) !important;
+
+  .pi {
+    color: var(--text-color-secondary) !important;
+  }
 }

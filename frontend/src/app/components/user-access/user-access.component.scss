@@ -2,12 +2,12 @@
   display: inline-block;
   width: 100%;
   height: 100%;
-  background-color: var(--light-background);
+  background-color: var(--surface-a);
   border-radius: 8px;
 
   ::ng-deep {
     .p-divider-content {
-      background-color: var(--light-background) !important;
+      background-color: var(--surface-a) !important;
     }
   }
 }
