@@ -29,13 +29,6 @@ export class InsertDataComponent implements OnInit {
     this.entity.id = this.randomIdGeneration();
   }
 
-  submitValues() {
-    this.clearErrors();
-    if (this.valuesAccepted()) {
-      this.askConfirmation();
-    }
-  }
-
   confirmSubmission(event: Event) {
     this.confirmationService.confirm({
       target: event.target,
@@ -66,28 +59,6 @@ export class InsertDataComponent implements OnInit {
   randomIdGeneration() {
     let randomId = Math.random().toString(36).substring(5, 10);
     return randomId.toUpperCase()
-  }
-
-  private clearErrors() {
-    this.badAuthorValue = false
-    this.badContentValue = false
-  }
-
-  private valuesAccepted(): boolean {
-    if (this.entity.id === undefined || this.entity.id.length <= 0) {
-      this.badIdValue = true
-    }
-    if (this.entity.data.author === undefined || this.entity.data.author.length <= 0) {
-      this.badAuthorValue = true
-    }
-    if (this.entity.data.content === undefined || this.entity.data.content.length <= 0) {
-      this.badContentValue = true
-    }
-    return !(this.badAuthorValue || this.badContentValue);
-  }
-
-  private askConfirmation() {
-    this.showConfirmationDialog()
   }
 
   private showConfirmationDialog(status: boolean = true) {
