@@ -26,32 +26,41 @@ export class InsertDataComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.entity.id = this.randomIdGeneration()
+    this.entity.id = this.randomIdGeneration();
   }
 
   submitValues() {
-    this.clearErrors()
+    this.clearErrors();
     if (this.valuesAccepted()) {
-      this.askConfirmation()
+      this.askConfirmation();
     }
   }
 
-  confirmSubmission() {
-    this.backendService.addEntity(this.entity)
-      .subscribe(() => {
-        this.showConfirmationDialog(false)
-        this.toastService.submissionSuccessful()
-      }, () => {
-        this.toastService.error()
-      })
+  confirmSubmission($event: Event) {
+    this.confirmationService.confirm({
+      target: event.target,
+      message: 'Are you sure that you want to proceed?',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.backendService.addEntity(this.entity)
+          .subscribe(() => {
+            this.toastService.submissionSuccessful();
+          }, () => {
+            this.toastService.error();
+          });
+      },
+      reject: () => {
+        this.abort();
+      }
+    });
   }
 
   abort() {
-    this.showConfirmationDialog(false)
+    this.showConfirmationDialog(false);
   }
 
   setInvalidIf(status: boolean) {
-    return {'invalid-input': status}
+    return {'invalid-input': status};
   }
 
   randomIdGeneration() {
@@ -83,19 +92,5 @@ export class InsertDataComponent implements OnInit {
 
   private showConfirmationDialog(status: boolean = true) {
     this.display = status
-  }
-
-  confirm($event: Event) {
-    this.confirmationService.confirm({
-      target: event.target,
-      message: 'Are you sure that you want to proceed?',
-      icon: 'pi pi-exclamation-triangle',
-      accept: () => {
-        //confirm action
-      },
-      reject: () => {
-        //reject action
-      }
-    });
   }
 }
