@@ -8,13 +8,13 @@
         <div class="p-fluid">
           <div class="p-field">
             <label for="username"></label>
-            <input [(ngModel)]="this.user.username" id="username" pInputText placeholder="Username" type="text"/>
+            <input [(ngModel)]="user.username" id="username" pInputText placeholder="Username" type="text"/>
           </div>
           <div class="p-field">
             <label for="password"></label>
-            <input [(ngModel)]="this.user.password" id="password" pInputText placeholder="Password" type="password"/>
+            <input [(ngModel)]="user.password" id="password" pInputText placeholder="Password" type="password"/>
           </div>
-          <p-button (onClick)="this.login()" autofocus label="Login" type="button"></p-button>
+          <p-button (onClick)="login()" autofocus label="Login" type="button"></p-button>
         </div>
       </div>
       <div class="p-d-flex p-ai-center p-jc-center">
