@@ -9,27 +9,27 @@
         <div class="p-fluid">
           <div class="p-field">
             <label for="username"></label>
-            <input [(ngModel)]="this.user.username"
-                   [ngClass]="setInvalidIf(this.usernameNotAvailable || this.usernameNotInserted)" id="username"
+            <input [(ngModel)]="user.username"
+                   [ngClass]="setInvalidIf(usernameNotAvailable || usernameNotInserted)" id="username"
                    pInputText placeholder="Choose a username" type="text"/>
           </div>
           <div class="p-field">
             <label for="password"></label>
-            <input [(ngModel)]="this.user.password"
-                   [ngClass]="setInvalidIf(this.passwordsDontMatch || this.passwordNotAccepted)" id="password" pPassword
+            <input [(ngModel)]="user.password"
+                   [ngClass]="setInvalidIf(passwordsDontMatch || passwordNotAccepted)" id="password" pPassword
                    placeholder="Choose a password" type="password"/>
           </div>
           <div class="p-field">
             <label for="password-confirmation"></label>
-            <input [(ngModel)]="this.passwordConfirmation" [ngClass]="setInvalidIf(this.passwordsDontMatch)"
+            <input [(ngModel)]="passwordConfirmation" [ngClass]="setInvalidIf(passwordsDontMatch)"
                    id="password-confirmation" pInputText
                    placeholder="Confirm the password" type="password"/>
           </div>
           <div class="error-message">
-            <h5 *ngIf="this.usernameNotInserted">Please insert username</h5>
-            <h5 *ngIf="this.usernameNotAvailable">Username not available</h5>
-            <h5 *ngIf="this.passwordNotAccepted">Password too weak</h5>
-            <h5 *ngIf="this.passwordsDontMatch">Passwords don't match</h5>
+            <h5 *ngIf="usernameNotInserted">Please insert username</h5>
+            <h5 *ngIf="usernameNotAvailable">Username not available</h5>
+            <h5 *ngIf="passwordNotAccepted">Password too weak</h5>
+            <h5 *ngIf="passwordsDontMatch">Passwords don't match</h5>
           </div>
         </div>
       </div>

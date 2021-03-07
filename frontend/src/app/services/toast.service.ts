@@ -35,8 +35,8 @@ export class ToastService {
   constructor() {
   }
 
-  showToast(message: Message) {
-    this.invokeEvent.next(message)
+  private showToast(message: Message) {
+    this.invokeEvent.next(message);
   }
 
   registrationSuccessful() {

@@ -51,16 +51,16 @@ export class SignupComponent implements OnInit {
     }
   }
 
-  inputAccepted(): boolean {
+  private inputAccepted(): boolean {
     if (this.user.username === undefined || this.user.username.length < 1) {
-      this.usernameNotAvailable = true
-      return false
+      this.usernameNotAvailable = true;
+      return false;
     } else if (this.user.password === undefined || this.user.password.length < MINIMUM_PASSWORD_LENGTH) {
-      this.passwordNotAccepted = true
-      return false
+      this.passwordNotAccepted = true;
+      return false;
     } else {
       if (this.user.password === this.passwordConfirmation) {
-        return true
+        return true;
       } else {
         this.passwordsDontMatch = true
         return false
@@ -72,10 +72,10 @@ export class SignupComponent implements OnInit {
     return {'invalid-input': status}
   }
 
-  resetErrors() {
-    this.usernameNotAvailable = false
-    this.passwordNotAccepted = false
-    this.passwordsDontMatch = false
-    this.registrationError = false
+  private resetErrors() {
+    this.usernameNotAvailable = false;
+    this.passwordNotAccepted = false;
+    this.passwordsDontMatch = false;
+    this.registrationError = false;
   }
 }

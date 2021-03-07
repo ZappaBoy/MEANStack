@@ -10,7 +10,7 @@
           <label for="id">ID</label>
           <span class="p-input-icon-right">
           <i class="pi pi-id-card"></i>
-          <input [(ngModel)]="entity.id" [ngClass]="setInvalidIf(this.badIdValue)" id="id" pInputText placeholder="ID"
+          <input [(ngModel)]="entity.id" [ngClass]="setInvalidIf(badIdValue)" id="id" pInputText placeholder="ID"
                  type="text">
         </span>
         </div>
@@ -19,7 +19,7 @@
           <label for="author">Author</label>
           <span class="p-input-icon-right">
           <i class="pi pi-user"></i>
-          <input [(ngModel)]="entity.data.author" [ngClass]="setInvalidIf(this.badAuthorValue)" id="author" pInputText
+          <input [(ngModel)]="entity.data.author" [ngClass]="setInvalidIf(badAuthorValue)" id="author" pInputText
                  placeholder="Author" type="text">
         </span>
         </div>
@@ -35,7 +35,7 @@
           <label for="content">Content</label>
           <span class="p-input-icon-right">
           <i class="pi pi-align-center"></i>
-          <textarea [(ngModel)]="entity.data.content" [ngClass]="setInvalidIf(this.badContentValue)" [rows]="3"
+          <textarea [(ngModel)]="entity.data.content" [ngClass]="setInvalidIf(badContentValue)" [rows]="3"
                     autoResize="autoResize" id="content" pInputTextarea placeholder="Content" type="text"></textarea>
         </span>
         </div>
@@ -56,9 +56,9 @@
       </div>
 
       <div class="error-message">
-        <h5 *ngIf="this.badIdValue">Wrong ID</h5>
-        <h5 *ngIf="this.badAuthorValue">Wrong Author</h5>
-        <h5 *ngIf="this.badContentValue">Wrong Content</h5>
+        <h5 *ngIf="badIdValue">Wrong ID</h5>
+        <h5 *ngIf="badAuthorValue">Wrong Author</h5>
+        <h5 *ngIf="badContentValue">Wrong Content</h5>
       </div>
     </div>
 

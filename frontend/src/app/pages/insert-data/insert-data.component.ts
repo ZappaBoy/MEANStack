@@ -52,7 +52,16 @@ export class InsertDataComponent implements OnInit {
   }
 
   abort() {
-    this.showConfirmationDialog(false);
+    this.showConfirmationDialog(false)
+  }
+
+  setInvalidIf(status: boolean) {
+    return {'invalid-input': status}
+  }
+
+  private randomIdGeneration() {
+    let randomId = Math.random().toString(36).substring(5, 10);
+    return randomId.toUpperCase();
   }
 
   private clearErrors() {

@@ -4,7 +4,7 @@
       <img alt="" class="p-mr-2 logo" routerLink="/" src="assets/images/logo.png">
     </ng-template>
 
-    <div *ngIf="this.isAuthenticated(); then loggedUserContent else userAccessContent"></div>
+    <div *ngIf="isAuthenticated(); then loggedUserContent else userAccessContent"></div>
     <ng-template #loggedUserContent>
       <app-logout></app-logout>
     </ng-template>
