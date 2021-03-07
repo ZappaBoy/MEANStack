@@ -32,6 +32,7 @@ import {DialogModule} from 'primeng/dialog';
 import {ToastModule} from 'primeng/toast';
 import {CalendarModule} from "primeng/calendar";
 import {InputTextareaModule} from 'primeng/inputtextarea';
+import {ConfirmPopupModule} from 'primeng/confirmpopup';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
     FormsModule,
     InputTextareaModule,
     CalendarModule,
+    ConfirmPopupModule,
     RouterModule.forRoot([
       {path: '', component: AppComponent}
     ]),
