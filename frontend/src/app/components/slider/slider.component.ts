@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {PhotoGalleryService} from "../../services/photo-gallery.service";
 
 @Component({
   selector: 'app-slider',
@@ -8,28 +7,30 @@ import {PhotoGalleryService} from "../../services/photo-gallery.service";
 })
 export class SliderComponent implements OnInit {
 
-
   images: any[];
+  imagesAsset: any;
 
-  responsiveOptions: any[] = [
-    {
-      breakpoint: '1024px',
-      numVisible: 1
-    },
-    {
-      breakpoint: '768px',
-      numVisible: 1
-    },
-    {
-      breakpoint: '560px',
-      numVisible: 1
-    }
-  ];
-
-  constructor(private photoService: PhotoGalleryService) {
+  constructor() {
   }
 
   ngOnInit(): void {
-    this.photoService.getImages().then(images => this.images = images);
+    this.images = []
+
+    this.imagesAsset = [
+      {
+        "thumbnailImageSrc": "assets/images/abstract1.png",
+        "alt": "",
+        "title": "Welcome..."
+      },
+      {
+        "thumbnailImageSrc": "assets/images/abstract2.jpg",
+        "alt": "",
+        "title": "...to the future"
+      }
+    ]
+
+    for (let asset of this.imagesAsset) {
+      this.images.push(asset)
+    }
   }
 }

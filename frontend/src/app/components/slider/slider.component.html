@@ -1,10 +1,10 @@
-<p-galleria [autoPlay]="true" [circular]="true" [numVisible]="1"
-            [responsiveOptions]="responsiveOptions" [showIndicatorsOnItem]="false" [showIndicators]="false"
+<p-galleria [autoPlay]="true" [circular]="true" [numVisible]="1" [showIndicatorsOnItem]="false"
+            [showIndicators]="false"
             [showItemNavigators]="false" [showThumbnailNavigators]="false" [value]="images">
   <ng-template let-item pTemplate="thumbnail">
     <div class="p-grid p-nogutter p-justify-center p-ac-center gallery">
       <img [src]="item.thumbnailImageSrc" alt=""/>
-<!--      <h1 class="centered">{{item.title}}</h1>-->
+      <!--      <h1 class="centered">{{item.title}}</h1>-->
     </div>
   </ng-template>
 </p-galleria>
