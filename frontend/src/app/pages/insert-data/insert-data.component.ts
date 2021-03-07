@@ -25,8 +25,9 @@ export class InsertDataComponent implements OnInit {
               private confirmationService: ConfirmationService) {
   }
 
-  ngOnInit(): void {
-    this.entity.id = this.randomIdGeneration();
+  private static randomIdGeneration() {
+    let randomId = Math.random().toString(36).substring(5, 10);
+    return randomId.toUpperCase();
   }
 
   confirmSubmission(event: Event) {
@@ -59,9 +60,8 @@ export class InsertDataComponent implements OnInit {
     return {'invalid-input': status}
   }
 
-  private randomIdGeneration() {
-    let randomId = Math.random().toString(36).substring(5, 10);
-    return randomId.toUpperCase();
+  ngOnInit(): void {
+    this.entity.id = InsertDataComponent.randomIdGeneration();
   }
 
   private clearErrors() {
@@ -80,15 +80,6 @@ export class InsertDataComponent implements OnInit {
       this.badContentValue = true;
     }
     return !(this.badAuthorValue || this.badContentValue);
-  }
-
-  setInvalidIf(status: boolean) {
-    return {'invalid-input': status};
-  }
-
-  randomIdGeneration() {
-    let randomId = Math.random().toString(36).substring(5, 10);
-    return randomId.toUpperCase();
   }
 
   private showConfirmationDialog(status: boolean = true) {

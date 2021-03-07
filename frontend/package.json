@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "npx ng",
-    "start": "ng serve --host localhost --poll=500 --port=4200 --proxy-config ./config/proxy.config.json",
+    "start": "ng serve --host localhost --poll=500 --port=80 --proxy-config ./config/proxy.config.json",
     "build": "ng build --prod frontend",
     "test": "ng test",
     "lint": "ng lint",
