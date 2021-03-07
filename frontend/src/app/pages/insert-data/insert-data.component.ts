@@ -54,9 +54,9 @@ export class InsertDataComponent implements OnInit {
     return {'invalid-input': status}
   }
 
-  randomIdGeneration() {
+  private randomIdGeneration() {
     let randomId = Math.random().toString(36).substring(5, 10);
-    return randomId.toUpperCase()
+    return randomId.toUpperCase();
   }
 
   private clearErrors() {

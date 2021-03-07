@@ -21,7 +21,7 @@ export class ToasterComponent implements OnInit {
       });
   }
 
-  showToast(message: Message) {
+  private showToast(message: Message) {
     this.messageService.add(message);
   }
 }
