@@ -50,7 +50,7 @@ reasons it&rsquo;s the standard framework used on it.
 
 ## Angular
 
-Angular is a development platform, built on TypeScript. As a platform, Angular include a component-based framework for
+Angular is a development platform, built on TypeScript. As a platform, Angular includes a component-based framework for
 building scalable web applications and a collection of well-integrated libraries that cover a wide variety of features,
 including routing, forms management, client-server communication, and more. Angular also has a suite of developer tools
 to help the development, build, test, and maintenance of the code. Angular offers the advantage of a platform that can
