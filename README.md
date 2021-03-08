@@ -1,18 +1,19 @@
 # Table of Contents
 
-1. [What&rsquo;s MEANStack?](#orge468dbf)
-2. [MEAN explanation](#org60afa7f)
-    1. [MongoDB](#org8e21721)
-    2. [Express](#org606706b)
-    3. [Angular](#org350e30a)
-    4. [Node.js](#org0bcf02b)
-    5. [Javascript everywhere paradigm](#orgcb6ce08)
-3. [How MEANStack works?](#org8a12694)
-    1. [Backend](#orgfb6568b)
-    2. [Frontend](#orgbaffaac)
-4. [Acknowledgements](#orgec06995)
+1. [What&rsquo;s MEANStack?](#orge6933d9)
+2. [MEAN explanation](#org9261faf)
+1. [MongoDB](#orge5383c0)
+2. [Express](#orgdb38d54)
+3. [Angular](#org88fe8c6)
+   1. [PrimeNG](#orgd6bac49)
+4. [Node.js](#org0d9fbf0)
+5. [Javascript everywhere paradigm](#orgc30c61f)
+3. [How MEANStack works?](#org209c89e)
+1. [Backend](#org72bc6ff)
+2. [Frontend](#orgbc9bff7)
+4. [Acknowledgements](#org1c904d2)
 
-<a id="orge468dbf"></a>
+<a id="orge6933d9"></a>
 
 # What&rsquo;s MEANStack?
 
@@ -22,13 +23,11 @@ Furthermore, the project is production-ready thanks to the use of the Docker eng
 deployment. And last but not least this stack is fully open source, which means that many developers work every day on
 all these components.
 
-To start or stop both backend and frontend dockers use `./start.sh` and `./stop.sh`
-
-<a id="org60afa7f"></a>
+<a id="org9261faf"></a>
 
 # MEAN explanation
 
-<a id="org8e21721"></a>
+<a id="orge5383c0"></a>
 
 ## MongoDB
 
@@ -37,7 +36,7 @@ collections and documents: documents consist of key-value pairs which are the ba
 contain sets of documents and function which is the equivalent of relational database tables. These features allow
 MongoDB to be used for high volume data storage.
 
-<a id="org606706b"></a>
+<a id="orgdb38d54"></a>
 
 ## Express
 
@@ -46,17 +45,27 @@ mobile applications. Express has a myriad of HTTP utility, methods and middlewar
 and easily. Express provides a thin layer of fundamental web application features, without obscuring Node.js, for this
 reasons it&rsquo;s the standard framework used on it.
 
-<a id="org350e30a"></a>
+<a id="org88fe8c6"></a>
 
 ## Angular
 
-Angular is a development platform, built on TypeScript. As a platform, Angular includes a component-based framework for
+Angular is a development platform, built on TypeScript. As a platform, Angular include a component-based framework for
 building scalable web applications and a collection of well-integrated libraries that cover a wide variety of features,
 including routing, forms management, client-server communication, and more. Angular also has a suite of developer tools
 to help the development, build, test, and maintenance of the code. Angular offers the advantage of a platform that can
 scale from single-developer projects to enterprise-level applications.
 
-<a id="org0bcf02b"></a>
+<a id="orgd6bac49"></a>
+
+### PrimeNG
+
+PrimeNG is a rich set of open-source native Angular UI components. The project has been developed using PrimeNG
+components, it&rsquo;s very simple to use and all the components are very well designed graphically. PrimeNG was chosen
+thanks to its huge variety of components, so it offers a quick way to create or modify the pages using it.
+Visit [PrimeNG](https://primefaces.org/primeng/) to find out more and check
+the [official repository](https://github.com/primefaces/primeng).
+
+<a id="org0d9fbf0"></a>
 
 ## Node.js
 
@@ -65,7 +74,7 @@ executes Javascript code outside a web browser. Node.js lets developers use Java
 server-side scripting and running scripts server-side to produce dynamic web page content before the page is sent to the
 user&rsquo;s web browser.
 
-<a id="orgcb6ce08"></a>
+<a id="orgc30c61f"></a>
 
 ## Javascript everywhere paradigm
 
@@ -73,7 +82,7 @@ Node.js is a representation of the JavaScript everywhere paradigm that means uni
 a single programming language, rather than different languages for server-side and client-side scripts. Such as Node.js
 the MEAN stack aims to use Javascript in the whole development.
 
-<a id="org8a12694"></a>
+<a id="org209c89e"></a>
 
 # How MEANStack works?
 
@@ -83,7 +92,7 @@ deployed using the Docker engine. Both backend and frontend have a `docker-compo
 the dockers are based on a `node:latest` docker image and work using `pm2-runtime`. PM2 is a daemon process manager that
 helps to manage and keep applications online and automatically allows the cluster mode to run multi-thread processes.
 
-<a id="orgfb6568b"></a>
+<a id="org72bc6ff"></a>
 
 ## Backend
 
@@ -106,7 +115,7 @@ Example: `FRONTEND_ORIGINS=domain-site.com,another-domain-site.com`).
     FRONTEND_ORIGINS=localhost,127.0.0.1
     FRONTEND_PORT=4200
 
-<a id="orgbaffaac"></a>
+<a id="orgbc9bff7"></a>
 
 ## Frontend
 
@@ -145,7 +154,7 @@ effective backend IP. When in production the proxy requests are handled by `ngin
 Angular build is completed the `dist` folder is moved to an `nginx:latest` docker container and is defined as a proxy
 through the `nginx-proxy.conf`.
 
-<a id="orgec06995"></a>
+<a id="org1c904d2"></a>
 
 # Acknowledgements
 
