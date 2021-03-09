@@ -98,3 +98,11 @@ ul.p-menubar-root-list {
     color: var(--text-color-secondary) !important;
   }
 }
+
+#page-content {
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 10rem;
+}
