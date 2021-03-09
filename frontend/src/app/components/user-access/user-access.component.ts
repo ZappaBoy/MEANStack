@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {DialogService} from "primeng/dynamicdialog";
-import {User} from "../../models/user.model";
-import {BackendService} from "../../services/backend.service";
-import {ToastService} from "../../services/toast.service";
-import {LocalStorageService} from "../../services/local-storage.service";
+import {DialogService} from 'primeng/dynamicdialog';
+import {User} from '../../models/user.model';
+import {BackendService} from '../../services/backend.service';
+import {ToastService} from '../../services/toast.service';
+import {LocalStorageService} from '../../services/local-storage.service';
 
 @Component({
   selector: 'app-user-access',
@@ -14,7 +14,13 @@ import {LocalStorageService} from "../../services/local-storage.service";
 export class UserAccessComponent implements OnInit {
 
   display: boolean = false;
-  user: User = new User()
+  user: User = new User();
+
+  usernameNotInserted: boolean;
+  usernameNotAvailable: boolean;
+  passwordNotInserted: boolean;
+  accessSuccessful: boolean;
+  accessError: boolean;
 
   showDialog(status: boolean = true) {
     this.display = status;
@@ -29,14 +35,48 @@ export class UserAccessComponent implements OnInit {
   }
 
   login(): void {
-    this.backendService.login(this.user)
-      .subscribe((user) => {
-        this.toastService.loginSuccessful()
-        this.localStorage.setLoggedStatus()
-        this.showDialog(false)
-      }, (error) => {
-        console.log(error)
-        this.toastService.error()
-      })
+    this.resetErrors();
+
+    if (this.inputAccepted()) {
+      this.backendService.login(this.user)
+        .subscribe(() => {
+          this.accessSuccessful = true;
+
+          this.toastService.loginSuccessful();
+          this.localStorage.setLoggedStatus();
+          this.showDialog(false);
+        }, (error) => {
+          this.accessError = true;
+          console.log(error);
+          this.toastService.error();
+        });
+    }
+  }
+
+  private inputAccepted(): boolean {
+    if (this.user.username == undefined) {
+      this.usernameNotInserted = true;
+
+      return false;
+    }
+
+    if (this.user.password == undefined) {
+      this.passwordNotInserted = true;
+
+      return false;
+    }
+
+    return true;
+  }
+
+  setInvalidIf(status: boolean) {
+    return {'invalid-input': status};
+  }
+
+  private resetErrors() {
+    this.usernameNotInserted = false;
+    this.usernameNotAvailable = false;
+    this.passwordNotInserted = false;
+    this.accessError = false;
   }
 }

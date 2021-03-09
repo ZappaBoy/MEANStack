@@ -8,12 +8,23 @@
         <div class="p-fluid">
           <div class="p-field">
             <label for="username"></label>
-            <input [(ngModel)]="user.username" id="username" pInputText placeholder="Username" type="text"/>
+            <input [(ngModel)]="user.username"
+                   [ngClass]="setInvalidIf(usernameNotInserted)" id="username" pInputText placeholder="Username"
+                   type="text"/>
           </div>
           <div class="p-field">
             <label for="password"></label>
-            <input [(ngModel)]="user.password" id="password" pInputText placeholder="Password" type="password"/>
+            <input [(ngModel)]="user.password"
+                   [ngClass]="setInvalidIf(passwordNotInserted)" id="password" pInputText placeholder="Password"
+                   type="password"/>
           </div>
+
+          <div class="error-message">
+            <h5 *ngIf="usernameNotInserted">Please insert username</h5>
+            <h5 *ngIf="usernameNotAvailable">User not available</h5>
+            <h5 *ngIf="passwordNotInserted">Please insert password</h5>
+          </div>
+
           <p-button (onClick)="login()" autofocus label="Login" type="button"></p-button>
         </div>
       </div>
