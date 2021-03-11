@@ -1,8 +1,7 @@
 'use strict'
 
 const userModel = require('../Connection').models.user
-
-const userError = -1
+const constant = require('../../constants/userModelError')
 
 async function isUserOfDB(username) {
 	return new Promise((resolve, reject) => {
@@ -46,7 +45,7 @@ async function saveUser(userData) {
 			})
 		} else {
 			console.log('User already exist')
-			reject(userError)
+			reject(constant.USER_ERROR)
 		}
 	})
 }
@@ -63,7 +62,7 @@ async function getUserData(username) {
 				} else {
 					if (!error) {
 						console.log('User - getUserData - No Data')
-						reject(error)
+						reject(constant.USER_NOT_EXIST)
 					} else {
 						console.log('User - getUserData - ERROR: ' + error)
 						reject(error)
@@ -72,7 +71,7 @@ async function getUserData(username) {
 			})
 		} else {
 			console.log('User already exist')
-			reject(userError)
+			reject(constant.USER_ERROR)
 		}
 	})
 }
@@ -92,7 +91,7 @@ async function changeUserData({userData}) {
 				.lean().exec())
 		} else {
 			console.log('User already exist')
-			reject(userError)
+			reject(constant.USER_ERROR)
 		}
 	})
 }
