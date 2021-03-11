@@ -17,7 +17,6 @@ export class UserAccessComponent implements OnInit {
   user: User = new User();
 
   usernameNotInserted: boolean;
-  usernameNotAvailable: boolean;
   passwordNotInserted: boolean;
   accessSuccessful: boolean;
   accessError: boolean;
@@ -46,9 +45,14 @@ export class UserAccessComponent implements OnInit {
           this.localStorage.setLoggedStatus();
           this.showDialog(false);
         }, (error) => {
+          if (error && (error.status === 401 || error.status === 406)) {
+            this.toastService.loginFailed();
+          } else {
+            this.toastService.error();
+          }
+
           this.accessError = true;
           console.log(error);
-          this.toastService.error();
         });
     }
   }
@@ -75,7 +79,6 @@ export class UserAccessComponent implements OnInit {
 
   private resetErrors() {
     this.usernameNotInserted = false;
-    this.usernameNotAvailable = false;
     this.passwordNotInserted = false;
     this.accessError = false;
   }
