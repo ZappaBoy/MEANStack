@@ -42,9 +42,7 @@ router.post('/authenticate', async function (req, res, next) {
       }
     })
     .catch((error) => {
-      if (error === constant.USER_ERROR) {
-        res.status(409)
-      } else if (error === constant.USER_NOT_EXIST) {
+      if (error === constant.USER_ERROR || error === constant.USER_NOT_EXIST) {
         res.status(406)
       } else {
         res.status(500)
