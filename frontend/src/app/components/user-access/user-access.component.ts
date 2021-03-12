@@ -58,7 +58,7 @@ export class UserAccessComponent implements OnInit {
   }
 
   private inputAccepted(): boolean {
-    if (this.user.username == undefined) {
+    if (this.user.username == undefined || this.user.username.length < 1) {
       this.usernameNotInserted = true;
 
       return false;
