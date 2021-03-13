@@ -64,7 +64,7 @@ export class UserAccessComponent implements OnInit {
       return false;
     }
 
-    if (this.user.password == undefined) {
+    if (this.user.password == undefined || this.user.password.length < 1) {
       this.passwordNotInserted = true;
 
       return false;
