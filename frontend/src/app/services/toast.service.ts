@@ -8,26 +8,32 @@ import {Subject} from "rxjs";
 export class ToastService {
 
   registrationSuccessfulMessage: Message = {
-    severity: "success",
-    summary: "Success",
-    detail: "Registration successful"
+    severity: 'success',
+    summary: 'Success',
+    detail: 'Registration successful'
   }
 
   loginSuccessfulMessage: Message = {
-    severity: "success",
-    summary: "Success",
-    detail: "Login successful"
-  }
+    severity: 'success',
+    summary: 'Success',
+    detail: 'Login successful'
+  };
+
+  loginFailedMessage: Message = {
+    severity: 'warn',
+    summary: 'Warn',
+    detail: 'Login failed'
+  };
 
   submissionSuccessfulMessage: Message = {
-    severity: "success",
-    summary: "Success",
-    detail: "Submission successful"
-  }
+    severity: 'success',
+    summary: 'Success',
+    detail: 'Submission successful'
+  };
 
   errorMessage: Message = {
-    severity: "error",
-    summary: "Error",
+    severity: 'error',
+    summary: 'Error',
     detail: "Something went wrong, try again later"
   }
   invokeEvent: Subject<any> = new Subject();
@@ -40,19 +46,23 @@ export class ToastService {
   }
 
   registrationSuccessful() {
-    this.showToast(this.registrationSuccessfulMessage)
+    this.showToast(this.registrationSuccessfulMessage);
   }
 
   loginSuccessful() {
-    this.showToast(this.loginSuccessfulMessage)
+    this.showToast(this.loginSuccessfulMessage);
+  }
+
+  loginFailed() {
+    this.showToast(this.loginFailedMessage);
   }
 
   submissionSuccessful() {
-    this.showToast(this.submissionSuccessfulMessage)
+    this.showToast(this.submissionSuccessfulMessage);
   }
 
   error() {
-    this.showToast(this.errorMessage)
+    this.showToast(this.errorMessage);
   }
 
 }
