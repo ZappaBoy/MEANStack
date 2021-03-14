@@ -17,6 +17,7 @@ import {FooterComponent} from './components/footer/footer.component';
 import {LogoutComponent} from './components/logout/logout.component';
 import {SignupComponent} from './components/signup/signup.component';
 import {ToasterComponent} from './components/toaster/toaster.component';
+import {UserAvatarComponent} from './components/user-avatar/user-avatar.component';
 
 import {ButtonModule} from "primeng/button";
 import {RippleModule} from "primeng/ripple";
@@ -25,14 +26,16 @@ import {GalleriaModule} from 'primeng/galleria';
 import {DividerModule} from 'primeng/divider';
 import {InputTextModule} from 'primeng/inputtext';
 import {TableModule} from 'primeng/table';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
 import {PasswordModule} from 'primeng/password';
 import {SliderModule} from 'primeng/slider';
 import {DialogModule} from 'primeng/dialog';
 import {ToastModule} from 'primeng/toast';
-import {CalendarModule} from "primeng/calendar";
+import {CalendarModule} from 'primeng/calendar';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {ConfirmPopupModule} from 'primeng/confirmpopup';
+import {AvatarModule} from 'primeng/avatar';
+import {AvatarGroupModule} from 'primeng/avatargroup';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,8 @@ import {ConfirmPopupModule} from 'primeng/confirmpopup';
     FooterComponent,
     LogoutComponent,
     SignupComponent,
-    ToasterComponent
+    ToasterComponent,
+    UserAvatarComponent
   ],
   imports: [
     BrowserModule,
@@ -70,6 +74,8 @@ import {ConfirmPopupModule} from 'primeng/confirmpopup';
     InputTextareaModule,
     CalendarModule,
     ConfirmPopupModule,
+    AvatarModule,
+    AvatarGroupModule,
     RouterModule.forRoot([
       {path: '', component: AppComponent}
     ]),
