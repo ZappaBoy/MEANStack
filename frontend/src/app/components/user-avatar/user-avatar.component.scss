@@ -4,5 +4,16 @@
       background-color: var(--secondary-color);
       color: var(--text-color-secondary) !important;
     }
+
+    .tieredMenu {
+      margin-top: 1vh;
+      background-color: var(--secondary-color);
+    }
+
+    //.tieredMenu ul li:nth-child(3) {
+    //  background-color: #3dbfe7;
+    //  color: #3dbfe7;
+    //}
   }
 }
+
