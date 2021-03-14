@@ -6,7 +6,7 @@
 
     <div *ngIf="isAuthenticated(); then loggedUserContent else userAccessContent"></div>
     <ng-template #loggedUserContent>
-      <app-logout></app-logout>
+      <app-user-avatar></app-user-avatar>
     </ng-template>
     <ng-template #userAccessContent>
       <app-user-access></app-user-access>
