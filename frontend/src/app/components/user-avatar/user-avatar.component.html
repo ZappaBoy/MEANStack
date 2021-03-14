@@ -1,3 +1,4 @@
 <div id="user-avatar-button">
-  <p-avatar icon="pi pi-user" size="large" shape="circle"></p-avatar>
+  <p-tieredMenu #menu [model]="items" styleClass="tieredMenu" [popup]="true"></p-tieredMenu>
+  <p-avatar icon="pi pi-user" size="large" shape="circle" (click)="menu.toggle($event)"></p-avatar>
 </div>

@@ -36,6 +36,7 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
 import {ConfirmPopupModule} from 'primeng/confirmpopup';
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
+import {TieredMenuModule} from 'primeng/tieredmenu';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import {AvatarGroupModule} from 'primeng/avatargroup';
     ConfirmPopupModule,
     AvatarModule,
     AvatarGroupModule,
+    TieredMenuModule,
     RouterModule.forRoot([
       {path: '', component: AppComponent}
     ]),
