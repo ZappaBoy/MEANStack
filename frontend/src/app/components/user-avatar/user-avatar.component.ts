@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuItem} from 'primeng/api';
+import {LocalStorageService} from '../../services/local-storage.service';
 
 @Component({
   selector: 'app-user-avatar',
@@ -10,7 +11,9 @@ export class UserAvatarComponent implements OnInit {
 
   items: MenuItem[];
 
-  constructor() {
+  display: boolean;
+
+  constructor(private localStorage: LocalStorageService) {
   }
 
   ngOnInit(): void {
@@ -18,8 +21,7 @@ export class UserAvatarComponent implements OnInit {
       {
         label: 'Profile',
         icon: 'pi pi-user',
-        command: event => {
-        }
+        routerLink: ''
       },
       {
         separator: true
@@ -27,10 +29,22 @@ export class UserAvatarComponent implements OnInit {
       {
         label: 'Logout',
         icon: 'pi pi-sign-out',
-        command: event => {
+        command: () => {
+          this.showDialog();
         }
       }
     ];
   }
 
+  showDialog(status: boolean = true) {
+    this.display = status;
+  }
+
+  quit() {
+    this.localStorage.setLoggedOutStatus();
+  }
+
+  abort() {
+    this.showDialog(false);
+  }
 }

@@ -2,3 +2,25 @@
   <p-tieredMenu #menu [model]="items" styleClass="tieredMenu" [popup]="true"></p-tieredMenu>
   <p-avatar icon="pi pi-user" size="large" shape="circle" (click)="menu.toggle($event)"></p-avatar>
 </div>
+
+<p-dialog [(visible)]="display" [draggable]="false" [focusOnShow]="true" styleClass="logout-dialog dialog-popup">
+  <div id="logout-panel">
+    <div class="card">
+      <h2>Are you sure?</h2>
+      <div class="p-d-flex p-ai-center p-jc-center">
+        <div class="p-fluid">
+          <p-button (click)="quit()" autofocus icon="pi pi-sign-out" id="quit-button" label="Yes, i'm sure"
+                    type="button"></p-button>
+        </div>
+      </div>
+      <div class="p-d-flex p-ai-center p-jc-center">
+        <p-divider layout="horizontal">
+        </p-divider>
+      </div>
+      <div class="p-d-flex p-ai-center p-jc-center">
+        <p-button (click)="abort()" icon="pi pi-sign-in p-button-success" label="No, stay online"
+                  styleClass="p-button-success" type="button"></p-button>
+      </div>
+    </div>
+  </div>
+</p-dialog>
